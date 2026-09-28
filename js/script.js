@@ -1,345 +1,540 @@
-// =========================
-// DARK / LIGHT MODE
-// =========================
+/* =========================================================
+   TRUONG CONG THANH - PERSONAL PORTFOLIO
+   SCRIPT.JS
+   ========================================================= */
 
-const themeButton = document.getElementById("themeToggle");
-const themeIcon = themeButton ? themeButton.querySelector(".theme-icon") : null;
-const themeLabel = themeButton ? themeButton.querySelector(".theme-label") : null;
 
-// Kiểm tra giao diện đã lưu
-const savedTheme = localStorage.getItem("theme");
+/* =========================
+   DARK / LIGHT MODE
+   ========================= */
 
-// Hàm cập nhật giao diện nút
-function updateThemeButton(isDark) {
-    if (!themeIcon || !themeLabel) return;
+const themeToggle = document.getElementById("themeToggle");
+
+const themeIcon = document.querySelector(".theme-icon");
+
+const themeLabel = document.querySelector(".theme-label");
+
+
+function updateThemeButton() {
+
+    const isDark =
+        document.body.classList.contains("dark");
 
     if (isDark) {
-        themeIcon.textContent = "☀️";
-        themeLabel.textContent = "Sáng";
+
+        if (themeIcon) {
+            themeIcon.textContent = "☀️";
+        }
+
+        if (themeLabel) {
+            themeLabel.textContent = "Sáng";
+        }
+
     } else {
-        themeIcon.textContent = "🌙";
-        themeLabel.textContent = "Tối";
+
+        if (themeIcon) {
+            themeIcon.textContent = "🌙";
+        }
+
+        if (themeLabel) {
+            themeLabel.textContent = "Tối";
+        }
     }
 }
 
-// Áp dụng giao diện đã lưu
-if (savedTheme === "dark") {
-    document.body.classList.add("dark");
-    updateThemeButton(true);
-} else {
+
+const savedTheme =
+    localStorage.getItem("theme");
+
+
+if (savedTheme === "light") {
+
     document.body.classList.remove("dark");
-    updateThemeButton(false);
+
+} else {
+
+    document.body.classList.add("dark");
+
 }
 
 
-// Đổi giao diện
-if (themeButton) {
-    themeButton.addEventListener("click", function () {
+updateThemeButton();
 
-        document.body.classList.toggle("dark");
 
-        const isDark = document.body.classList.contains("dark");
+if (themeToggle) {
 
-        if (isDark) {
-            localStorage.setItem("theme", "dark");
-        } else {
-            localStorage.setItem("theme", "light");
+    themeToggle.addEventListener(
+        "click",
+        function () {
+
+            document.body.classList.toggle("dark");
+
+            const isDark =
+                document.body.classList.contains("dark");
+
+            localStorage.setItem(
+                "theme",
+                isDark ? "dark" : "light"
+            );
+
+            updateThemeButton();
+
         }
+    );
 
-        updateThemeButton(isDark);
-    });
 }
 
 
-// =========================
-// HIỆU ỨNG GÕ CHỮ
-// =========================
+/* =========================
+   HIỆU ỨNG GÕ CHỮ
+   ========================= */
 
-const typedRole = document.getElementById("typedRole");
+const typedRole =
+    document.getElementById("typedRole");
+
 
 const roles = [
+
     "Sinh viên Sư phạm Tin học",
+
     "Sinh viên Sư phạm Toán học",
+
     "Người yêu thích công nghệ",
+
     "Người yêu thích lập trình"
+
 ];
 
+
 let roleIndex = 0;
+
 let charIndex = 0;
-let isDeleting = false;
 
-function typeEffect() {
+let deleting = false;
 
-    if (!typedRole) return;
 
-    const currentRole = roles[roleIndex];
+function typingEffect() {
 
-    if (!isDeleting) {
-        typedRole.textContent = currentRole.substring(0, charIndex + 1);
+    if (!typedRole) {
+        return;
+    }
+
+
+    const currentRole =
+        roles[roleIndex];
+
+
+    if (!deleting) {
+
+        typedRole.textContent =
+            currentRole.substring(
+                0,
+                charIndex + 1
+            );
+
         charIndex++;
 
-        if (charIndex === currentRole.length) {
-            isDeleting = true;
 
-            setTimeout(typeEffect, 1800);
+        if (
+            charIndex ===
+            currentRole.length
+        ) {
+
+            deleting = true;
+
+            setTimeout(
+                typingEffect,
+                1800
+            );
+
             return;
         }
 
+
     } else {
-        typedRole.textContent = currentRole.substring(0, charIndex - 1);
+
+        typedRole.textContent =
+            currentRole.substring(
+                0,
+                charIndex - 1
+            );
+
         charIndex--;
 
+
         if (charIndex === 0) {
-            isDeleting = false;
+
+            deleting = false;
+
             roleIndex++;
 
-            if (roleIndex >= roles.length) {
+            if (
+                roleIndex >=
+                roles.length
+            ) {
+
                 roleIndex = 0;
+
             }
+
         }
+
     }
 
-    const speed = isDeleting ? 50 : 90;
 
-    setTimeout(typeEffect, speed);
+    const speed =
+        deleting ? 50 : 90;
+
+
+    setTimeout(
+        typingEffect,
+        speed
+    );
 }
 
-typeEffect();
+
+typingEffect();
 
 
-// =========================
-// FORM LIÊN HỆ
-// =========================
+/* =========================
+   FORM LIÊN HỆ
+   ========================= */
 
-const contactForm = document.getElementById("contactForm");
+const contactForm =
+    document.getElementById("contactForm");
+
 
 if (contactForm) {
 
-    contactForm.addEventListener("submit", function (event) {
+    contactForm.addEventListener(
+        "submit",
+        function (event) {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        const nameInput = document.getElementById("contactName");
 
-        const name = nameInput ? nameInput.value.trim() : "";
+            const nameInput =
+                document.getElementById(
+                    "contactName"
+                );
 
-        if (name === "") {
-            alert("Vui lòng nhập họ và tên!");
-            return;
+
+            const name =
+                nameInput.value.trim();
+
+
+            if (name === "") {
+
+                alert(
+                    "Vui lòng nhập họ và tên!"
+                );
+
+                return;
+            }
+
+
+            alert(
+                "Cảm ơn " +
+                name +
+                "! Tin nhắn của bạn đã được ghi nhận."
+            );
+
+
+            contactForm.reset();
+
         }
+    );
 
-        alert(
-            "Cảm ơn " +
-            name +
-            "! Tin nhắn của bạn đã được ghi nhận."
-        );
-
-        contactForm.reset();
-
-    });
 }
 
 
-// =========================
-// MENU ACTIVE KHI CUỘN
-// =========================
+/* =========================
+   MENU ACTIVE
+   ========================= */
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-link");
+const sections =
+    document.querySelectorAll(
+        "section[id]"
+    );
+
+
+const navLinks =
+    document.querySelectorAll(
+        ".nav-link"
+    );
+
 
 function updateActiveMenu() {
 
     let currentSection = "";
 
-    sections.forEach(function (section) {
 
-        const sectionTop = section.offsetTop - 180;
-        const sectionHeight = section.offsetHeight;
+    sections.forEach(
+        function (section) {
 
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
-        ) {
-            currentSection = section.getAttribute("id");
+            const sectionTop =
+                section.offsetTop - 200;
+
+
+            const sectionHeight =
+                section.offsetHeight;
+
+
+            if (
+                window.scrollY >=
+                    sectionTop &&
+
+                window.scrollY <
+                    sectionTop +
+                    sectionHeight
+            ) {
+
+                currentSection =
+                    section.getAttribute(
+                        "id"
+                    );
+
+            }
+
         }
+    );
 
-    });
 
-    navLinks.forEach(function (link) {
+    navLinks.forEach(
+        function (link) {
 
-        link.classList.remove("active");
+            link.classList.remove(
+                "active"
+            );
 
-        const href = link.getAttribute("href");
 
-        if (href === "#" + currentSection) {
-            link.classList.add("active");
+            if (
+                link.getAttribute(
+                    "href"
+                ) ===
+                "#" + currentSection
+            ) {
+
+                link.classList.add(
+                    "active"
+                );
+
+            }
+
         }
+    );
 
-    });
 }
 
-window.addEventListener("scroll", updateActiveMenu);
+
+window.addEventListener(
+    "scroll",
+    updateActiveMenu
+);
+
 
 updateActiveMenu();
 
 
-// =========================
-// CUỘN MƯỢT KHI BẤM MENU
-// =========================
+/* =========================
+   CUỘN MƯỢT MENU
+   ========================= */
 
-navLinks.forEach(function (link) {
+navLinks.forEach(
+    function (link) {
 
-    link.addEventListener("click", function (event) {
+        link.addEventListener(
+            "click",
+            function (event) {
 
-        const targetId = link.getAttribute("href");
-
-        if (!targetId || !targetId.startsWith("#")) {
-            return;
-        }
-
-        const target = document.querySelector(targetId);
-
-        if (target) {
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        }
-
-    });
-
-});
+                const targetId =
+                    link.getAttribute(
+                        "href"
+                    );
 
 
-// =========================
-// HIỆU ỨNG HIỆN KHI CUỘN
-// =========================
+                if (
+                    !targetId ||
+                    !targetId.startsWith("#")
+                ) {
 
-const animatedElements = document.querySelectorAll(
-    ".content-card, .skill-card, .project-card, .achievement-card, .academic-card, .activity-card, .contact-item"
-);
+                    return;
 
-const observer = new IntersectionObserver(
-    function (entries) {
-
-        entries.forEach(function (entry) {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("show");
-
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.15
-    }
-);
-
-animatedElements.forEach(function (element) {
-    observer.observe(element);
-});
-
-
-// =========================
-// ANIMATION THANH KỸ NĂNG
-// =========================
-
-const skillBars = document.querySelectorAll(".progress-bar");
-
-const skillObserver = new IntersectionObserver(
-    function (entries) {
-
-        entries.forEach(function (entry) {
-
-            if (entry.isIntersecting) {
-
-                const bar = entry.target;
-
-                const width = bar.getAttribute("data-width");
-
-                if (width) {
-                    bar.style.width = width;
                 }
 
-                skillObserver.unobserve(bar);
+
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
+
+
+                if (target) {
+
+                    event.preventDefault();
+
+
+                    target.scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                }
+
             }
+        );
 
-        });
-
-    },
-    {
-        threshold: 0.3
     }
 );
 
-skillBars.forEach(function (bar) {
 
-    // Nếu HTML chưa có data-width thì lấy width hiện tại trong CSS
-    const currentWidth = getComputedStyle(bar).width;
+/* =========================
+   HIỆU ỨNG ONLINE
+   ========================= */
 
-    if (!bar.hasAttribute("data-width")) {
-        bar.setAttribute("data-width", currentWidth);
-        bar.style.width = "0";
-    }
-
-    skillObserver.observe(bar);
-});
+const online =
+    document.querySelector(".online");
 
 
-// =========================
-// NÚT FACEBOOK
-// =========================
+if (online) {
 
-const facebookLinks = document.querySelectorAll(
-    'a[href*="facebook.com"]'
-);
+    setInterval(
+        function () {
 
-facebookLinks.forEach(function (link) {
+            online.classList.toggle(
+                "blink"
+            );
 
-    link.setAttribute("target", "_blank");
-    link.setAttribute("rel", "noopener noreferrer");
-
-});
-
-
-// =========================
-// HIỆU ỨNG NHẤP NHÁY STATUS
-// =========================
-
-const onlineStatus = document.querySelector(".online");
-
-if (onlineStatus) {
-
-    setInterval(function () {
-
-        onlineStatus.classList.toggle("blink");
-
-    }, 1000);
+        },
+        1000
+    );
 
 }
 
 
-// =========================
-// HIỆU ỨNG MARQUEE
-// =========================
+/* =========================
+   THANH KỸ NĂNG
+   ========================= */
 
-const marqueeTrack = document.querySelector(".marquee-track");
+const progressBars =
+    document.querySelectorAll(
+        ".progress-bar"
+    );
 
-if (marqueeTrack) {
 
-    marqueeTrack.addEventListener("mouseenter", function () {
-        marqueeTrack.style.animationPlayState = "paused";
-    });
+const progressObserver =
+    new IntersectionObserver(
+        function (entries) {
 
-    marqueeTrack.addEventListener("mouseleave", function () {
-        marqueeTrack.style.animationPlayState = "running";
-    });
+            entries.forEach(
+                function (entry) {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        const bar =
+                            entry.target;
+
+
+                        const width =
+                            bar.getAttribute(
+                                "data-width"
+                            );
+
+
+                        if (width) {
+
+                            bar.style.width =
+                                width;
+
+                        }
+
+
+                        progressObserver.unobserve(
+                            bar
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.3
+        }
+    );
+
+
+progressBars.forEach(
+    function (bar) {
+
+        progressObserver.observe(
+            bar
+        );
+
+    }
+);
+
+
+/* =========================
+   HIỆU ỨNG MARQUEE
+   ========================= */
+
+const marquee =
+    document.querySelector(
+        ".marquee-track"
+    );
+
+
+if (marquee) {
+
+    marquee.addEventListener(
+        "mouseenter",
+        function () {
+
+            marquee.style.animationPlayState =
+                "paused";
+
+        }
+    );
+
+
+    marquee.addEventListener(
+        "mouseleave",
+        function () {
+
+            marquee.style.animationPlayState =
+                "running";
+
+        }
+    );
 
 }
+
+
+/* =========================
+   LINK FACEBOOK
+   ========================= */
+
+const facebookLinks =
+    document.querySelectorAll(
+        'a[href*="facebook.com"]'
+    );
+
+
+facebookLinks.forEach(
+    function (link) {
+
+        link.setAttribute(
+            "target",
+            "_blank"
+        );
+
+        link.setAttribute(
+            "rel",
+            "noopener noreferrer"
+        );
+
+    }
+);
