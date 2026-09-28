@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="Portfolio cá nhân của Trương Công Thành - sinh viên Sư phạm Tin học và Sư phạm Toán học.">
 
     <title>Trương Công Thành | Portfolio</title>
 
@@ -15,15 +11,9 @@
 
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
-
+    <!-- ================= HEADER ================= -->
     <header class="navbar">
-
-        <a href="#home" class="logo">
-            ✦ Thành
-        </a>
+        <div class="logo">TRƯƠNG CÔNG THÀNH</div>
 
         <nav>
             <a href="#home" class="nav-link active">Trang chủ</a>
@@ -34,938 +24,627 @@
             <a href="#contact" class="nav-link">Liên hệ</a>
         </nav>
 
-        <button
-            class="theme-toggle"
-            id="themeToggle"
-            type="button"
-            aria-label="Đổi giao diện">
-
-            <span class="theme-icon">🌙</span>
-            <span class="theme-label">Tối</span>
-
+        <button class="theme-toggle" id="themeToggle" type="button">
+            <span class="theme-icon">☀️</span>
+            <span class="theme-label">Sáng</span>
         </button>
-
     </header>
 
 
-    <main>
+    <!-- ================= TRANG CHỦ ================= -->
+    <section id="home" class="page home-section">
 
-        <!-- =========================
-             HOME
-        ========================== -->
+        <div class="home-card">
 
-        <section id="home" class="page home-section">
+            <div class="avatar-box">
+                <img src="images/avatar.jpg" alt="Trương Công Thành">
+                <span class="online"></span>
+            </div>
 
-            <div class="home-card">
+            <div class="status">
+                ● Đang học tập và phát triển
+            </div>
 
-                <div class="avatar-box">
+            <h1>
+                Xin chào, tôi là
+                <span>Trương Công Thành</span>
+            </h1>
 
-                    <img
-                        src="images/avatar.jpg"
-                        alt="Ảnh đại diện Trương Công Thành">
+            <div class="major">
+                <span id="typedRole"></span>
+                <span class="typing-cursor">|</span>
+            </div>
 
+            <p class="intro">
+                Tôi là sinh viên ngành Sư phạm Tin học, yêu thích công nghệ,
+                lập trình và giảng dạy. Tôi luôn cố gắng học hỏi những kiến thức
+                mới để phát triển bản thân.
+            </p>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>3.21</strong>
+                    <span>GPA / 4.0</span>
                 </div>
 
-
-                <div class="status">
-
-                    <span class="online"></span>
-
-                    Đang học tập và phát triển
-
+                <div class="stat">
+                    <strong>5</strong>
+                    <span>Học kỳ giỏi</span>
                 </div>
 
+                <div class="stat">
+                    <strong>15+</strong>
+                    <span>Môn học</span>
+                </div>
 
-                <h1>
-                    Trương Công Thành
-                </h1>
+            </div>
+
+            <div class="home-buttons">
+                <a href="#about" class="btn primary">
+                    Xem giới thiệu
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    Liên hệ với tôi
+                </a>
+            </div>
+
+            <div class="social">
+                <a href="mailto:truongcongthanh1205@gmail.com">📧</a>
+                <a href="tel:0819004015">📱</a>
+                <a href="https://www.facebook.com/truongcongthah1205"
+                   target="_blank">f</a>
+            </div>
+
+            <div class="social-interest">
+                🎮 Chơi game &nbsp; • &nbsp;
+                ⚽ Đá bóng &nbsp; • &nbsp;
+                🏸 Cầu lông &nbsp; • &nbsp;
+                💻 Công nghệ
+            </div>
+
+        </div>
+
+        <div class="marquee">
+            <div class="marquee-track">
+                SƯ PHẠM TIN HỌC • CÔNG NGHỆ • LẬP TRÌNH • GIÁO DỤC •
+                SÁNG TẠO • HỌC TẬP • SƯ PHẠM TIN HỌC • CÔNG NGHỆ •
+                LẬP TRÌNH • GIÁO DỤC •
+            </div>
+        </div>
+
+    </section>
 
 
-                <p class="major">
-                    K26 - Sư phạm Tin học
-                </p>
+    <!-- ================= GIỚI THIỆU ================= -->
+    <section id="about" class="page">
 
+        <h2 class="section-title">
+            <span>01.</span> Giới thiệu
+        </h2>
 
-                <p class="typing">
+        <div class="about-container">
 
-                    <span id="typedRole">
-                        Sinh viên Sư phạm Tin học
-                    </span>
+            <div class="about-image">
+                <img src="images/avatar.jpg" alt="Trương Công Thành">
+            </div>
 
-                    <span class="typing-cursor">|</span>
+            <div class="about-content">
 
-                </p>
-
-
-                <p class="intro">
-
-                    Xin chào! Tôi là Trương Công Thành.
-                    Tôi yêu thích công nghệ, lập trình,
-                    giảng dạy và luôn cố gắng học hỏi
-                    những điều mới mỗi ngày.
-
-                </p>
-
-
-                <div class="stats">
+                <div class="info-box">
+                    <div>
+                        <strong>Họ và tên</strong>
+                        <span>Trương Công Thành</span>
+                    </div>
 
                     <div>
-                        <strong>3.21</strong>
-                        <span>GPA / 4.0</span>
+                        <strong>Ngày sinh</strong>
+                        <span>12/05/2005</span>
                     </div>
 
                     <div>
-                        <strong>5</strong>
-                        <span>Học kỳ giỏi</span>
+                        <strong>Quê quán</strong>
+                        <span>Thanh Hóa</span>
                     </div>
 
                     <div>
-                        <strong>15+</strong>
-                        <span>Môn học</span>
+                        <strong>Lớp</strong>
+                        <span>K26 - Sư phạm Tin học</span>
                     </div>
-
                 </div>
 
-
-                <div class="home-buttons">
-
-                    <a href="#about" class="btn primary">
-                        Xem giới thiệu
-                    </a>
-
-                    <a href="#contact" class="btn secondary">
-                        Liên hệ với tôi
-                    </a>
-
-                </div>
-
-
-                <div class="social">
-
-                    <a
-                        href="https://www.facebook.com/truongcongthah1205"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Facebook">
-                        Facebook
-                    </a>
-
-                </div>
-
-
-                <p class="social-interest">
-                    🎮 Chơi game &nbsp; ⚽ Đá bóng &nbsp; 🏸 Cầu lông
-                </p>
-
-            </div>
-
-
-            <div class="marquee">
-
-                <div class="marquee-track">
-
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Giảng dạy</span>
-                    <span>Lập trình</span>
-                    <span>Công nghệ</span>
-
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Giảng dạy</span>
-                    <span>Lập trình</span>
-                    <span>Công nghệ</span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             ABOUT
-        ========================== -->
-
-        <section id="about" class="page">
-
-            <div class="container">
-
-                <h2 class="section-title">
-                    Giới thiệu
-                </h2>
-
-
-                <div class="about-container">
-
-                    <div class="about-image">
-
-                        <img
-                            src="images/avatar.jpg"
-                            alt="Trương Công Thành">
-
-                    </div>
-
-
-                    <div class="about-content">
-
-                        <div class="info-box">
-
-                            <div class="info-item">
-                                <strong>Họ tên</strong>
-                                <span>Trương Công Thành</span>
-                            </div>
-
-                            <div class="info-item">
-                                <strong>Ngày sinh</strong>
-                                <span>12/05/2005</span>
-                            </div>
-
-                            <div class="info-item">
-                                <strong>Quê quán</strong>
-                                <span>Thanh Hóa</span>
-                            </div>
-
-                            <div class="info-item">
-                                <strong>Lớp</strong>
-                                <span>K26 - Sư phạm Tin học</span>
-                            </div>
-
-                            <div class="info-item">
-                                <strong>Ngành 2</strong>
-                                <span>Sư phạm Toán học</span>
-                            </div>
-
-                            <div class="info-item">
-                                <strong>GPA</strong>
-                                <span>3.21 / 4.0</span>
-                            </div>
-
-                        </div>
-
-
-                        <div class="content-card">
-
-                            <h3 class="sub-title">
-                                👨‍💻 Về tôi
-                            </h3>
-
-                            <p>
-                                Tôi là sinh viên ngành Sư phạm Tin học,
-                                đồng thời học thêm Sư phạm Toán học.
-                                Tôi yêu thích lập trình, công nghệ thông tin
-                                và các hoạt động giảng dạy.
-                            </p>
-
-                        </div>
-
-
-                        <div class="content-card">
-
-                            <h3 class="sub-title">
-                                ❤️ Sở thích
-                            </h3>
-
-                            <div class="hobbies">
-
-                                <span class="hobby">🎮 Chơi game</span>
-                                <span class="hobby">⚽ Đá bóng</span>
-                                <span class="hobby">🏸 Cầu lông</span>
-                                <span class="hobby">💻 Lập trình</span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="goal-card">
-
-                            <h3 class="sub-title">
-                                🎯 Mục tiêu
-                            </h3>
-
-                            <p>
-                                Không ngừng học hỏi, nâng cao kỹ năng
-                                công nghệ và sư phạm để trở thành một
-                                giáo viên Tin học có chuyên môn tốt,
-                                sáng tạo và có khả năng ứng dụng công nghệ
-                                vào giảng dạy.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             SKILLS
-        ========================== -->
-
-        <section id="skills" class="page">
-
-            <div class="container">
-
-                <h2 class="section-title">
-                    Kỹ năng
-                </h2>
-
-
-                <div class="skills-container">
-
-
-                    <!-- Kỹ năng chuyên môn -->
-
-                    <div class="skill-card">
-
-                        <h3 class="sub-title">
-                            💻 Kỹ năng chuyên môn
-                        </h3>
-
-
-                        <div class="skill-item">
-
-                            <div class="skill-name">
-
-                                <span>HTML</span>
-                                <span>50%</span>
-
-                            </div>
-
-                            <div class="progress">
-
-                                <div
-                                    class="progress-bar"
-                                    data-width="50%">
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-item">
-
-                            <div class="skill-name">
-
-                                <span>CSS</span>
-                                <span>60%</span>
-
-                            </div>
-
-                            <div class="progress">
-
-                                <div
-                                    class="progress-bar"
-                                    data-width="60%">
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-item">
-
-                            <div class="skill-name">
-
-                                <span>JavaScript</span>
-                                <span>45%</span>
-
-                            </div>
-
-                            <div class="progress">
-
-                                <div
-                                    class="progress-bar"
-                                    data-width="45%">
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-item">
-
-                            <div class="skill-name">
-
-                                <span>Kỹ năng sư phạm</span>
-                                <span>80%</span>
-
-                            </div>
-
-                            <div class="progress">
-
-                                <div
-                                    class="progress-bar"
-                                    data-width="80%">
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Kỹ năng mềm -->
-
-                    <div class="soft-skill-card">
-
-                        <h3 class="sub-title">
-                            🤝 Kỹ năng mềm
-                        </h3>
-
-
-                        <div class="soft-skills">
-
-                            <div class="circle-skill">
-
-                                <strong>85%</strong>
-                                <span>Teamwork</span>
-
-                            </div>
-
-                            <div class="circle-skill">
-
-                                <strong>80%</strong>
-                                <span>Giao tiếp</span>
-
-                            </div>
-
-                            <div class="circle-skill">
-
-                                <strong>75%</strong>
-                                <span>Sáng tạo</span>
-
-                            </div>
-
-                            <div class="circle-skill">
-
-                                <strong>85%</strong>
-                                <span>Chăm chỉ</span>
-
-                            </div>
-
-                            <div class="circle-skill">
-
-                                <strong>75%</strong>
-                                <span>Giải quyết vấn đề</span>
-
-                            </div>
-
-                            <div class="circle-skill">
-
-                                <strong>80%</strong>
-                                <span>Thuyết trình</span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="extra-skills">
-
-                            <h3 class="sub-title">
-                                ⭐ Kỹ năng khác
-                            </h3>
-
-                            <div class="skill-tags">
-
-                                <span>Microsoft Office</span>
-                                <span>PowerPoint</span>
-                                <span>Thiết kế bài giảng</span>
-                                <span>Làm việc nhóm</span>
-                                <span>Thuyết trình</span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             PROJECTS
-        ========================== -->
-
-        <section id="projects" class="page">
-
-            <div class="container">
-
-                <h2 class="section-title">
-                    Dự án
-                </h2>
-
-
-                <div class="projects-grid">
-
-
-                    <div class="project-card">
-
-                        <div class="project-icon">
-                            💻
-                        </div>
-
-                        <h3>
-                            Website cá nhân
-                        </h3>
-
-                        <p>
-                            Xây dựng website portfolio cá nhân
-                            bằng HTML, CSS và JavaScript.
-                        </p>
-
-                        <div class="tags">
-
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="project-card">
-
-                        <div class="project-icon">
-                            🎓
-                        </div>
-
-                        <h3>
-                            E-Learning
-                        </h3>
-
-                        <p>
-                            Nghiên cứu ứng dụng hệ thống học tập
-                            trực tuyến cho trường THPT.
-                        </p>
-
-                        <div class="tags">
-
-                            <span>Moodle</span>
-                            <span>E-Learning</span>
-                            <span>Giáo dục</span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="project-card">
-
-                        <div class="project-icon">
-                            🌐
-                        </div>
-
-                        <h3>
-                            Thiết kế mạng
-                        </h3>
-
-                        <p>
-                            Thiết kế hệ thống mạng cho trường học
-                            và mô hình doanh nghiệp.
-                        </p>
-
-                        <div class="tags">
-
-                            <span>Network</span>
-                            <span>Cisco</span>
-                            <span>LAN</span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="project-card">
-
-                        <div class="project-icon">
-                            📊
-                        </div>
-
-                        <h3>
-                            Quản lý dữ liệu
-                        </h3>
-
-                        <p>
-                            Xây dựng các bài tập quản lý dữ liệu
-                            bằng C#, SQL Server và WPF.
-                        </p>
-
-                        <div class="tags">
-
-                            <span>C#</span>
-                            <span>SQL</span>
-                            <span>WPF</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             ACHIEVEMENTS
-        ========================== -->
-
-        <section id="achievements" class="page">
-
-            <div class="container">
-
-                <h2 class="section-title">
-                    Thành tích
-                </h2>
-
-
-                <div class="achievement-grid">
-
-
-                    <div class="achievement-card">
-
-                        <div class="achievement-icon">
-                            🏆
-                        </div>
-
-                        <h3 class="achievement-title">
-                            Giải Ba học sinh giỏi tỉnh
-                        </h3>
-
-                        <p>
-                            Đạt Giải Ba học sinh giỏi tỉnh
-                            môn Hóa năm 2023.
-                        </p>
-
-                    </div>
-
-
-                    <div class="achievement-card">
-
-                        <div class="achievement-icon">
-                            🎓
-                        </div>
-
-                        <h3 class="achievement-title">
-                            Kết quả học tập
-                        </h3>
-
-                        <p>
-                            GPA hiện tại 3.21/4.0 và có
-                            5 học kỳ đạt loại giỏi.
-                        </p>
-
-                    </div>
-
-
-                    <div class="achievement-card">
-
-                        <div class="achievement-icon">
-                            🌟
-                        </div>
-
-                        <h3 class="achievement-title">
-                            Hoạt động Đoàn - Đội
-                        </h3>
-
-                        <p>
-                            Tích cực tham gia các hoạt động
-                            phong trào Đoàn - Đội.
-                        </p>
-
-                    </div>
-
-
-                    <div class="achievement-card">
-
-                        <div class="achievement-icon">
-                            ❤️
-                        </div>
-
-                        <h3 class="achievement-title">
-                            Hiến máu tình nguyện
-                        </h3>
-
-                        <p>
-                            Thường xuyên tham gia các hoạt động
-                            hiến máu tình nguyện.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="academic-grid">
-
-                    <div class="academic-card">
-
-                        <h3>3.21 / 4.0</h3>
-
-                        <p>GPA</p>
-
-                    </div>
-
-                    <div class="academic-card">
-
-                        <h3>5</h3>
-
-                        <p>Học kỳ giỏi</p>
-
-                    </div>
-
-                    <div class="academic-card">
-
-                        <h3>15+</h3>
-
-                        <p>Môn học</p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="activity-card">
-
-                    <div class="activity-icon">
-                        📚
-                    </div>
+                <div class="content-card">
 
                     <h3 class="sub-title">
-                        Hoạt động và chứng nhận
+                        🎓 Quá trình học tập
                     </h3>
 
                     <p>
-                        Sinh viên tham gia tốt phong trào Đoàn - Đội.
-                        Có chứng nhận tham gia lớp cảm tình Đảng.
-                        Tích cực tham gia các hoạt động cộng đồng.
+                        Hiện tại tôi đang theo học ngành Sư phạm Tin học,
+                        đồng thời học thêm Sư phạm Toán học. Trong quá trình
+                        học tập, tôi luôn chú trọng kết hợp kiến thức công nghệ
+                        với phương pháp giảng dạy.
+                    </p>
+
+                </div>
+
+                <div class="content-card">
+
+                    <h3 class="sub-title">
+                        ❤️ Sở thích
+                    </h3>
+
+                    <div class="hobbies">
+
+                        <div class="hobby">🎮 Chơi game</div>
+                        <div class="hobby">⚽ Đá bóng</div>
+                        <div class="hobby">🏸 Cầu lông</div>
+                        <div class="hobby">💻 Công nghệ</div>
+
+                    </div>
+
+                </div>
+
+                <div class="goal-card">
+
+                    <h3>🎯 Mục tiêu</h3>
+
+                    <p>
+                        Trở thành một giáo viên có chuyên môn tốt,
+                        biết ứng dụng công nghệ vào dạy học và luôn
+                        đổi mới phương pháp giáo dục.
                     </p>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
+
+    </section>
 
 
-        <!-- =========================
-             CONTACT
-        ========================== -->
+    <!-- ================= KỸ NĂNG ================= -->
+    <section id="skills" class="page">
 
-        <section id="contact" class="page">
+        <h2 class="section-title">
+            <span>02.</span> Kỹ năng
+        </h2>
 
-            <div class="container">
+        <div class="skills-container">
 
-                <h2 class="section-title">
-                    Liên hệ
-                </h2>
+            <div class="skill-card">
 
+                <h3>💻 Kỹ năng chuyên môn</h3>
 
-                <div class="contact-container">
-
-
-                    <div class="contact-info">
-
-
-                        <div class="contact-item">
-
-                            <div class="contact-icon">
-                                👤
-                            </div>
-
-                            <div>
-
-                                <strong>Họ tên</strong>
-
-                                <span>
-                                    Trương Công Thành
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="contact-item">
-
-                            <div class="contact-icon">
-                                📧
-                            </div>
-
-                            <div>
-
-                                <strong>Email</strong>
-
-                                <a href="mailto:truongcongthanh1205@gmail.com">
-                                    truongcongthanh1205@gmail.com
-                                </a>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="contact-item">
-
-                            <div class="contact-icon">
-                                📱
-                            </div>
-
-                            <div>
-
-                                <strong>Số điện thoại</strong>
-
-                                <a href="tel:0819004015">
-                                    0819004015
-                                </a>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="contact-item">
-
-                            <div class="contact-icon">
-                                📘
-                            </div>
-
-                            <div>
-
-                                <strong>Facebook</strong>
-
-                                <a
-                                    href="https://www.facebook.com/truongcongthah1205"
-                                    target="_blank"
-                                    rel="noopener noreferrer">
-
-                                    Facebook cá nhân
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="ready">
-
-                            <h3 class="sub-title">
-                                🚀 Sẵn sàng kết nối
-                            </h3>
-
-                            <p>
-                                Nếu bạn muốn trao đổi về học tập,
-                                công nghệ, lập trình hoặc các dự án
-                                giáo dục, hãy liên hệ với tôi.
-                            </p>
-
-                        </div>
-
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>HTML</span>
+                        <span>50%</span>
                     </div>
 
+                    <div class="progress">
+                        <div class="progress-bar html"></div>
+                    </div>
+                </div>
 
-                    <form
-                        class="contact-form"
-                        id="contactForm">
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>CSS</span>
+                        <span>60%</span>
+                    </div>
 
-                        <label for="contactName">
-                            Họ và tên
-                        </label>
+                    <div class="progress">
+                        <div class="progress-bar css"></div>
+                    </div>
+                </div>
 
-                        <input
-                            type="text"
-                            id="contactName"
-                            placeholder="Nhập họ và tên"
-                            required>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>JavaScript</span>
+                        <span>45%</span>
+                    </div>
 
+                    <div class="progress">
+                        <div class="progress-bar js"></div>
+                    </div>
+                </div>
 
-                        <label for="contactEmail">
-                            Email
-                        </label>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Kỹ năng sư phạm</span>
+                        <span>80%</span>
+                    </div>
 
-                        <input
-                            type="email"
-                            id="contactEmail"
-                            placeholder="Nhập email"
-                            required>
+                    <div class="progress">
+                        <div class="progress-bar teaching"></div>
+                    </div>
+                </div>
 
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Thuyết trình</span>
+                        <span>80%</span>
+                    </div>
 
-                        <label for="contactSubject">
-                            Chủ đề
-                        </label>
+                    <div class="progress">
+                        <div class="progress-bar presentation"></div>
+                    </div>
+                </div>
 
-                        <input
-                            type="text"
-                            id="contactSubject"
-                            placeholder="Nhập chủ đề">
-
-
-                        <label for="contactMessage">
-                            Nội dung
-                        </label>
-
-                        <textarea
-                            id="contactMessage"
-                            placeholder="Nhập nội dung tin nhắn"
-                            required></textarea>
-
-
-                        <button
-                            type="submit"
-                            class="btn primary">
-
-                            Gửi tin nhắn
-
-                        </button>
+            </div>
 
 
-                        <p class="form-note">
-                            * Đây là biểu mẫu giao diện demo.
-                        </p>
+            <div class="skill-card">
 
-                    </form>
+                <h3>🧠 Kỹ năng mềm</h3>
+
+                <div class="soft-skills">
+
+                    <div class="circle-skill">
+                        <div class="circle">
+                            <strong>85%</strong>
+                        </div>
+                        <span>Teamwork</span>
+                    </div>
+
+                    <div class="circle-skill">
+                        <div class="circle">
+                            <strong>80%</strong>
+                        </div>
+                        <span>Giao tiếp</span>
+                    </div>
+
+                    <div class="circle-skill">
+                        <div class="circle">
+                            <strong>75%</strong>
+                        </div>
+                        <span>Sáng tạo</span>
+                    </div>
+
+                    <div class="circle-skill">
+                        <div class="circle">
+                            <strong>85%</strong>
+                        </div>
+                        <span>Chăm chỉ</span>
+                    </div>
+
+                </div>
+
+                <div class="extra-skills">
+
+                    <h4>Kỹ năng khác</h4>
+
+                    <div class="skill-tags">
+                        <span>Giải quyết vấn đề</span>
+                        <span>Làm việc nhóm</span>
+                        <span>Quản lý thời gian</span>
+                        <span>Tự học</span>
+                    </div>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
+    </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- ================= DỰ ÁN ================= -->
+    <section id="projects" class="page">
 
+        <h2 class="section-title">
+            <span>03.</span> Dự án
+        </h2>
+
+        <div class="projects-grid">
+
+            <div class="project-card project-blue">
+                <div class="project-icon">💻</div>
+
+                <h3>Website cá nhân</h3>
+
+                <p>
+                    Xây dựng website portfolio cá nhân bằng HTML,
+                    CSS và JavaScript.
+                </p>
+
+                <div class="tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+
+
+            <div class="project-card project-purple">
+                <div class="project-icon">🎓</div>
+
+                <h3>E-Learning</h3>
+
+                <p>
+                    Nghiên cứu ứng dụng hệ thống học tập trực tuyến
+                    cho trường THPT.
+                </p>
+
+                <div class="tags">
+                    <span>Moodle</span>
+                    <span>E-Learning</span>
+                    <span>Giáo dục</span>
+                </div>
+            </div>
+
+
+            <div class="project-card project-green">
+                <div class="project-icon">🏫</div>
+
+                <h3>Quản lý trường học</h3>
+
+                <p>
+                    Thiết kế ý tưởng phần mềm quản lý thông tin
+                    và hoạt động trường học.
+                </p>
+
+                <div class="tags">
+                    <span>Database</span>
+                    <span>SQL</span>
+                    <span>Phần mềm</span>
+                </div>
+            </div>
+
+
+            <div class="project-card project-orange">
+                <div class="project-icon">🌱</div>
+
+                <h3>Nhận diện sâu bệnh</h3>
+
+                <p>
+                    Ứng dụng xử lý ảnh để nhận diện sâu bệnh
+                    trên cây hoặc lá.
+                </p>
+
+                <div class="tags">
+                    <span>Python</span>
+                    <span>OpenCV</span>
+                    <span>AI</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= THÀNH TÍCH ================= -->
+    <section id="achievements" class="page">
+
+        <h2 class="section-title">
+            <span>04.</span> Thành tích
+        </h2>
+
+        <div class="achievement-grid">
+
+            <div class="achievement-card">
+                <div class="achievement-icon">🏆</div>
+
+                <h3>Giải Ba học sinh giỏi tỉnh</h3>
+
+                <p>
+                    Giải Ba học sinh giỏi tỉnh môn Hóa năm 2023.
+                </p>
+            </div>
+
+
+            <div class="achievement-card">
+                <div class="achievement-icon">🎓</div>
+
+                <h3>Thành tích học tập</h3>
+
+                <p>
+                    GPA 3.21/4.0 và đạt 5 học kỳ giỏi.
+                </p>
+            </div>
+
+
+            <div class="achievement-card">
+                <div class="achievement-icon">🤝</div>
+
+                <h3>Hoạt động Đoàn - Đội</h3>
+
+                <p>
+                    Tích cực tham gia các phong trào Đoàn - Đội
+                    và hoạt động tập thể.
+                </p>
+            </div>
+
+
+            <div class="achievement-card">
+                <div class="achievement-icon">❤️</div>
+
+                <h3>Hoạt động cộng đồng</h3>
+
+                <p>
+                    Thường xuyên tham gia các hoạt động hiến máu.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="academic-grid">
+
+            <div class="academic-card">
+                <strong>3.21</strong>
+                <span>GPA / 4.0</span>
+            </div>
+
+            <div class="academic-card">
+                <strong>5</strong>
+                <span>Học kỳ giỏi</span>
+            </div>
+
+            <div class="academic-card">
+                <strong>15+</strong>
+                <span>Môn học</span>
+            </div>
+
+        </div>
+
+
+        <div class="activity-card">
+
+            <div class="activity-icon">📜</div>
+
+            <div>
+                <h3>Chứng nhận</h3>
+
+                <p>
+                    Chứng nhận tham gia lớp cảm tình Đảng và
+                    tích cực tham gia các hoạt động sinh viên.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= LIÊN HỆ ================= -->
+    <section id="contact" class="page">
+
+        <h2 class="section-title">
+            <span>05.</span> Liên hệ
+        </h2>
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+
+                <h3>Thông tin liên hệ</h3>
+
+                <p class="ready">
+                    Nếu bạn muốn trao đổi hoặc kết nối,
+                    hãy liên hệ với tôi qua các thông tin dưới đây.
+                </p>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">👤</div>
+
+                    <div>
+                        <strong>Họ tên</strong>
+                        <span>Trương Công Thành</span>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">📱</div>
+
+                    <div>
+                        <strong>Số điện thoại</strong>
+                        <a href="tel:0819004015">
+                            0819004015
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">📧</div>
+
+                    <div>
+                        <strong>Email</strong>
+                        <a href="mailto:truongcongthanh1205@gmail.com">
+                            truongcongthanh1205@gmail.com
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">f</div>
+
+                    <div>
+                        <strong>Facebook</strong>
+
+                        <a href="https://www.facebook.com/truongcongthah1205"
+                           target="_blank">
+                            Facebook cá nhân
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <form class="contact-form" id="contactForm">
+
+                <h3>Gửi tin nhắn</h3>
+
+                <label for="contactName">Họ tên</label>
+                <input
+                    type="text"
+                    id="contactName"
+                    placeholder="Nhập họ tên">
+
+                <label for="contactEmail">Email</label>
+                <input
+                    type="email"
+                    id="contactEmail"
+                    placeholder="Nhập email">
+
+                <label for="contactSubject">Chủ đề</label>
+                <input
+                    type="text"
+                    id="contactSubject"
+                    placeholder="Nhập chủ đề">
+
+                <label for="contactMessage">Nội dung</label>
+                <textarea
+                    id="contactMessage"
+                    rows="6"
+                    placeholder="Nhập nội dung"></textarea>
+
+                <button type="submit" class="btn primary">
+                    Gửi tin nhắn
+                </button>
+
+                <p class="form-note">
+                    * Đây là biểu mẫu demo trên website.
+                </p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
     <footer>
 
         <div class="footer-logo">
-            ✦ Trương Công Thành
+            TRƯƠNG CÔNG THÀNH
         </div>
 
         <p>
-            © 2026 - Personal Portfolio
+            © 2026 Trương Công Thành. Personal Portfolio.
+        </p>
+
+        <p>
+            Sư phạm Tin học • Sư phạm Toán học
         </p>
 
     </footer>
@@ -974,5 +653,4 @@
     <script src="js/script.js"></script>
 
 </body>
-
 </html>
