@@ -30,7 +30,294 @@ a {
     max-width: 1150px;
     margin: auto;
 }
+/* ================================
+   HIEU UNG CHUYEN NGHIEP
+   ================================ */
 
+/* Nen gradient chuyen mau nhe */
+body {
+    background: linear-gradient(
+        -45deg,
+        #0f172a,
+        #172554,
+        #312e81,
+        #0f172a
+    );
+    background-size: 400% 400%;
+    animation: bgMove 12s ease infinite;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* ================================
+   DONG SANG CHAY TRANG
+   ================================ */
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #00eaff,
+        #ffffff,
+        #8b5cf6,
+        transparent
+    );
+    box-shadow: 0 0 15px #00eaff;
+    animation: lineRun 5s linear infinite;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+@keyframes lineRun {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+
+/* ================================
+   TEXT DOI MAU
+   ================================ */
+
+h1,
+.hero h1 {
+    background: linear-gradient(
+        90deg,
+        #00eaff,
+        #8b5cf6,
+        #ec4899,
+        #00eaff
+    );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation: textColor 5s linear infinite;
+}
+
+@keyframes textColor {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 300% center;
+    }
+}
+
+
+/* ================================
+   HIEU UNG NHAP NHAY NHE
+   ================================ */
+
+.hero h1 {
+    animation:
+        textColor 5s linear infinite,
+        glowText 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+    from {
+        filter: drop-shadow(0 0 3px rgba(0, 234, 255, 0.3));
+    }
+
+    to {
+        filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.8));
+    }
+}
+
+
+/* ================================
+   CAC THE CARD
+   ================================ */
+
+.card,
+.skill-card,
+.project-card,
+.achievement-card {
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+
+/* Dong sang chay qua card */
+
+.card::before,
+.skill-card::before,
+.project-card::before,
+.achievement-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.15),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+    transition: 0.6s;
+}
+
+.card:hover::before,
+.skill-card:hover::before,
+.project-card:hover::before,
+.achievement-card:hover::before {
+    left: 150%;
+}
+
+
+/* Card noi len khi hover */
+
+.card:hover,
+.skill-card:hover,
+.project-card:hover,
+.achievement-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        0 0 20px rgba(0, 234, 255, 0.15);
+}
+
+
+/* ================================
+   ANH AVATAR
+   ================================ */
+
+.profile-img,
+.avatar,
+.hero img {
+    transition: 0.5s ease;
+}
+
+.profile-img:hover,
+.avatar:hover,
+.hero img:hover {
+    transform: scale(1.05);
+    filter:
+        drop-shadow(0 0 10px #00eaff)
+        drop-shadow(0 0 20px #8b5cf6);
+}
+
+
+/* ================================
+   NUT BAM
+   ================================ */
+
+button,
+.btn,
+a.btn {
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+button:hover,
+.btn:hover,
+a.btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 10px rgba(0, 234, 255, 0.5),
+        0 0 25px rgba(139, 92, 246, 0.3);
+}
+
+
+/* ================================
+   HIEU UNG CHAM SANG
+   ================================ */
+
+button::after,
+.btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+    animation: buttonLight 3s infinite;
+}
+
+@keyframes buttonLight {
+    0% {
+        left: -120%;
+    }
+
+    50% {
+        left: 150%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+
+/* ================================
+   THANH CUON
+   ================================ */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        #00eaff,
+        #8b5cf6,
+        #ec4899
+    );
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00eaff;
+}
 
 /* =========================
    HEADER
