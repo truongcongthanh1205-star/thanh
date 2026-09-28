@@ -1929,3 +1929,75 @@ footer {
         transition-duration: 0.01ms !important;
     }
 }
+/* =========================
+   FIX PHAN LIEN HE - LIGHT MODE
+========================= */
+
+/* Mau mac dinh cho phan lien he */
+.contact-info,
+.contact-info h3,
+.contact-info p,
+.contact-item,
+.contact-item span,
+.contact-item strong,
+.contact-form label,
+.form-note {
+    color: var(--text);
+}
+
+/* Khi nen sang */
+body.light .contact-info,
+body.light .contact-info h3,
+body.light .contact-info p,
+body.light .contact-item,
+body.light .contact-item span,
+body.light .contact-item strong,
+body.light .contact-form label,
+body.light .form-note {
+    color: #1e293b;
+}
+
+/* Tieu de phan lien he */
+body.light #contact .section-title {
+    color: #0f172a;
+}
+
+/* Noi dung phu */
+body.light #contact .contact-info p,
+body.light #contact .form-note {
+    color: #475569;
+}
+
+/* O nhap lieu */
+body.light .contact-form input,
+body.light .contact-form textarea {
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+}
+
+/* Chu placeholder */
+body.light .contact-form input::placeholder,
+body.light .contact-form textarea::placeholder {
+    color: #64748b;
+}
+
+/* Khi click vao o nhap */
+body.light .contact-form input:focus,
+body.light .contact-form textarea:focus {
+    border-color: #06b6d4;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+}
+
+/* Icon lien he */
+body.light .contact-icon {
+    color: #0891b2;
+}
+
+/* The san sang ket noi */
+body.light .ready {
+    color: #0f172a;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+}
