@@ -1,13 +1,6 @@
 /* =========================================================
    TRUONG CONG THANH - PERSONAL PORTFOLIO
-   STYLE.CSS
-   Khop voi index.html + script.js hien tai
    ========================================================= */
-
-
-/* =========================
-   1. CAU HINH CHUNG
-   ========================= */
 
 * {
     margin: 0;
@@ -26,14 +19,12 @@ body {
     background: #080b18;
     line-height: 1.6;
     overflow-x: hidden;
-    transition:
-        background 0.5s ease,
-        color 0.5s ease;
+    transition: 0.4s ease;
 }
 
 a {
-    color: inherit;
     text-decoration: none;
+    color: inherit;
 }
 
 button,
@@ -46,14 +37,15 @@ button {
     cursor: pointer;
 }
 
-::selection {
-    background: #00eaff;
-    color: #080b18;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
 }
 
 
 /* =========================
-   2. NEN CHUYEN MAU
+   NEN
    ========================= */
 
 body {
@@ -68,68 +60,48 @@ body {
             rgba(139, 92, 246, 0.15),
             transparent 30%
         ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(236, 72, 153, 0.1),
-            transparent 30%
-        ),
         linear-gradient(
-            -45deg,
+            135deg,
             #080b18,
-            #0f172a,
             #111827,
             #1e1b4b,
             #080b18
         );
 
-    background-size:
-        auto,
-        auto,
-        auto,
-        400% 400%;
+    background-size: 300% 300%;
 
     animation: backgroundMove 15s ease infinite;
 }
 
 @keyframes backgroundMove {
+
     0% {
-        background-position:
-            0% 0%,
-            100% 0%,
-            50% 100%,
-            0% 50%;
+        background-position: 0% 50%;
     }
 
     50% {
-        background-position:
-            0% 0%,
-            100% 0%,
-            50% 100%,
-            100% 50%;
+        background-position: 100% 50%;
     }
 
     100% {
-        background-position:
-            0% 0%,
-            100% 0%,
-            50% 100%,
-            0% 50%;
+        background-position: 0% 50%;
     }
 }
 
 
 /* =========================
-   3. DUONG SANG CHAY TREN DAU
+   DUONG SANG CHAY
    ========================= */
 
 body::before {
     content: "";
 
     position: fixed;
+
     top: 0;
     left: -100%;
 
-    width: 55%;
+    width: 50%;
     height: 2px;
 
     background: linear-gradient(
@@ -138,21 +110,22 @@ body::before {
         #00eaff,
         #ffffff,
         #8b5cf6,
-        #ec4899,
         transparent
     );
 
     box-shadow:
-        0 0 8px #00eaff,
+        0 0 10px #00eaff,
         0 0 20px #8b5cf6;
 
     animation: runningLine 5s linear infinite;
 
     z-index: 99999;
+
     pointer-events: none;
 }
 
 @keyframes runningLine {
+
     from {
         left: -100%;
     }
@@ -164,17 +137,7 @@ body::before {
 
 
 /* =========================
-   4. CONTAINER
-   ========================= */
-
-.container {
-    width: min(90%, 1200px);
-    margin: 0 auto;
-}
-
-
-/* =========================
-   5. NAVBAR
+   NAVBAR
    ========================= */
 
 .navbar {
@@ -187,39 +150,29 @@ body::before {
 
     min-height: 70px;
 
+    padding: 12px 4%;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
-    padding: 12px 5%;
+    gap: 20px;
 
-    background: rgba(8, 11, 24, 0.75);
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(8, 11, 24, 0.78);
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
     z-index: 1000;
-
-    transition: 0.4s ease;
 }
-
-.navbar:hover {
-    background: rgba(8, 11, 24, 0.9);
-
-    box-shadow:
-        0 5px 30px rgba(0, 234, 255, 0.05);
-}
-
-
-/* =========================
-   6. LOGO
-   ========================= */
 
 .logo {
     font-size: 24px;
-    font-weight: 800;
+    font-weight: bold;
 
     background: linear-gradient(
         90deg,
@@ -229,7 +182,7 @@ body::before {
         #00eaff
     );
 
-    background-size: 300% auto;
+    background-size: 300%;
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -237,36 +190,34 @@ body::before {
     color: transparent;
 
     animation: logoColor 5s linear infinite;
-
-    white-space: nowrap;
 }
 
 @keyframes logoColor {
+
     from {
-        background-position: 0% center;
+        background-position: 0%;
     }
 
     to {
-        background-position: 300% center;
+        background-position: 300%;
     }
 }
 
 
 /* =========================
-   7. MENU
+   MENU
    ========================= */
 
 .navbar nav {
     display: flex;
-    align-items: center;
-}
 
-.navbar nav ul {
-    display: flex;
     align-items: center;
-    gap: 25px;
 
-    list-style: none;
+    justify-content: center;
+
+    gap: 22px;
+
+    flex-wrap: wrap;
 }
 
 .nav-link {
@@ -275,9 +226,10 @@ body::before {
     color: #cbd5e1;
 
     font-size: 14px;
+
     font-weight: 600;
 
-    padding: 8px 0;
+    padding: 7px 0;
 
     transition: 0.3s ease;
 }
@@ -287,7 +239,7 @@ body::before {
     color: #00eaff;
 
     text-shadow:
-        0 0 8px rgba(0, 234, 255, 0.7);
+        0 0 10px rgba(0, 234, 255, 0.7);
 }
 
 .nav-link::after {
@@ -306,8 +258,7 @@ body::before {
     background: linear-gradient(
         90deg,
         #00eaff,
-        #8b5cf6,
-        #ec4899
+        #8b5cf6
     );
 
     box-shadow:
@@ -323,72 +274,63 @@ body::before {
 
 
 /* =========================
-   8. NUT DARK / LIGHT
+   THEME
    ========================= */
 
 .theme-toggle {
     display: flex;
+
     align-items: center;
-    gap: 7px;
 
-    padding: 8px 14px;
+    gap: 6px;
 
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 8px 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
 
     border-radius: 25px;
 
-    color: #ffffff;
-
     background: rgba(255, 255, 255, 0.06);
+
+    color: #ffffff;
 
     transition: 0.3s ease;
 }
 
 .theme-toggle:hover {
-    transform: translateY(-2px);
-
     border-color: #00eaff;
+
+    color: #00eaff;
 
     box-shadow:
         0 0 15px rgba(0, 234, 255, 0.25);
-
-    color: #00eaff;
-}
-
-.theme-icon {
-    font-size: 16px;
-}
-
-.theme-label {
-    font-size: 13px;
 }
 
 
 /* =========================
-   9. SECTION
+   SECTION
    ========================= */
 
 .page {
     position: relative;
-    min-height: 100vh;
 }
 
 section {
-    position: relative;
+    min-height: 100vh;
 
-    padding: 100px 0;
+    padding: 110px 0;
 
-    overflow: hidden;
+    display: flex;
+
+    align-items: center;
 }
 
 .section-title {
-    position: relative;
-
     text-align: center;
 
-    font-size: clamp(30px, 5vw, 42px);
+    font-size: 40px;
 
-    margin-bottom: 55px;
+    margin-bottom: 50px;
 
     background: linear-gradient(
         90deg,
@@ -399,7 +341,7 @@ section {
         #ffffff
     );
 
-    background-size: 300% auto;
+    background-size: 300%;
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -409,67 +351,30 @@ section {
     animation: headingColor 6s linear infinite;
 }
 
-.section-title::after {
-    content: "";
-
-    display: block;
-
-    width: 80px;
-    height: 3px;
-
-    margin: 12px auto 0;
-
-    border-radius: 10px;
-
-    background: linear-gradient(
-        90deg,
-        #00eaff,
-        #8b5cf6,
-        #ec4899
-    );
-
-    box-shadow:
-        0 0 10px #00eaff;
-
-    animation: lineGlow 2s ease-in-out infinite alternate;
-}
-
 @keyframes headingColor {
+
     from {
-        background-position: 0% center;
+        background-position: 0%;
     }
 
     to {
-        background-position: 300% center;
-    }
-}
-
-@keyframes lineGlow {
-    from {
-        width: 60px;
-        opacity: 0.6;
-    }
-
-    to {
-        width: 110px;
-        opacity: 1;
+        background-position: 300%;
     }
 }
 
 
 /* =========================
-   10. HOME
+   HOME
    ========================= */
 
 .home-section {
     min-height: 100vh;
 
-    display: flex;
-    align-items: center;
-
     padding-top: 120px;
 
     position: relative;
+
+    overflow: hidden;
 }
 
 .home-section::before {
@@ -477,19 +382,19 @@ section {
 
     position: absolute;
 
-    width: 450px;
-    height: 450px;
+    width: 400px;
+    height: 400px;
 
-    top: 10%;
-    left: -150px;
+    left: -120px;
+    top: 15%;
 
     border-radius: 50%;
 
     background: rgba(0, 234, 255, 0.12);
 
-    filter: blur(90px);
+    filter: blur(80px);
 
-    animation: floatingGlow 6s ease-in-out infinite;
+    animation: floatGlow 6s ease-in-out infinite;
 }
 
 .home-section::after {
@@ -501,127 +406,71 @@ section {
     height: 400px;
 
     right: -120px;
-    bottom: 5%;
+    bottom: 10%;
 
     border-radius: 50%;
 
     background: rgba(139, 92, 246, 0.15);
 
-    filter: blur(90px);
+    filter: blur(80px);
 
-    animation: floatingGlow 8s ease-in-out infinite reverse;
+    animation: floatGlow 8s ease-in-out infinite reverse;
 }
 
-@keyframes floatingGlow {
+@keyframes floatGlow {
+
     0% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-30px) scale(1.1);
+        transform: translateY(-30px);
     }
 
     100% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 }
-
-
-/* =========================
-   11. HOME CARD
-   ========================= */
 
 .home-card {
     position: relative;
 
     z-index: 2;
 
-    width: 100%;
+    width: 90%;
 
-    max-width: 950px;
+    max-width: 900px;
 
-    margin: 0 auto;
+    margin: auto;
 
-    padding: 45px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 45px 30px;
 
     text-align: center;
 
     border-radius: 30px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.025)
-        );
+    background: rgba(255, 255, 255, 0.06);
 
     border: 1px solid rgba(255, 255, 255, 0.1);
 
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
 
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.3),
-        0 0 40px rgba(0, 234, 255, 0.04);
-
-    overflow: hidden;
-}
-
-.home-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 60%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.08),
-        transparent
-    );
-
-    transform: skewX(-20deg);
-
-    animation: cardLight 5s linear infinite;
-
-    pointer-events: none;
-}
-
-@keyframes cardLight {
-    0% {
-        left: -120%;
-    }
-
-    40% {
-        left: 140%;
-    }
-
-    100% {
-        left: 140%;
-    }
+        0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 
 /* =========================
-   12. AVATAR
+   AVATAR
    ========================= */
 
 .avatar-box {
+    width: 160px;
+    height: 160px;
+
+    margin: 0 auto 20px;
+
     position: relative;
-
-    width: 170px;
-    height: 170px;
-
-    margin-bottom: 25px;
 }
 
 .avatar-box img {
@@ -640,26 +489,23 @@ section {
             135deg,
             #00eaff,
             #8b5cf6,
-            #ec4899,
-            #00eaff
+            #ec4899
         ) border-box;
 
     box-shadow:
-        0 0 25px rgba(0, 234, 255, 0.4),
-        0 0 60px rgba(139, 92, 246, 0.2);
+        0 0 25px rgba(0, 234, 255, 0.4);
 
-    animation:
-        avatarFloat 5s ease-in-out infinite,
-        avatarGlow 3s ease-in-out infinite alternate;
+    animation: avatarFloat 5s ease-in-out infinite;
 
-    transition: 0.5s ease;
+    transition: 0.4s ease;
 }
 
 .avatar-box img:hover {
-    transform: scale(1.07) rotate(2deg);
+    transform: scale(1.06);
 }
 
 @keyframes avatarFloat {
+
     0% {
         transform: translateY(0);
     }
@@ -673,47 +519,34 @@ section {
     }
 }
 
-@keyframes avatarGlow {
-    from {
-        box-shadow:
-            0 0 15px rgba(0, 234, 255, 0.3);
-    }
-
-    to {
-        box-shadow:
-            0 0 30px rgba(0, 234, 255, 0.6),
-            0 0 60px rgba(139, 92, 246, 0.35);
-    }
-}
-
 
 /* =========================
-   13. TRANG THAI ONLINE
+   STATUS
    ========================= */
 
 .status {
     display: inline-flex;
+
     align-items: center;
+
     gap: 8px;
 
     margin-bottom: 15px;
 
-    padding: 6px 13px;
+    padding: 6px 12px;
 
-    border-radius: 30px;
+    border-radius: 20px;
+
+    color: #86efac;
 
     background: rgba(34, 197, 94, 0.08);
 
-    border: 1px solid rgba(34, 197, 94, 0.25);
-
-    color: #86efac;
+    border: 1px solid rgba(34, 197, 94, 0.2);
 
     font-size: 13px;
 }
 
 .online {
-    display: inline-block;
-
     width: 9px;
     height: 9px;
 
@@ -722,25 +555,20 @@ section {
     background: #22c55e;
 
     box-shadow:
-        0 0 8px #22c55e;
-
-    transition: 0.3s ease;
+        0 0 10px #22c55e;
 }
 
 .online.blink {
     opacity: 0.3;
-
-    box-shadow:
-        0 0 2px #22c55e;
 }
 
 
 /* =========================
-   14. TEN
+   HOME TITLE
    ========================= */
 
 .home-card h1 {
-    font-size: clamp(42px, 7vw, 78px);
+    font-size: clamp(40px, 7vw, 75px);
 
     line-height: 1.1;
 
@@ -755,7 +583,7 @@ section {
         #00eaff
     );
 
-    background-size: 400% auto;
+    background-size: 400%;
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -763,108 +591,80 @@ section {
     color: transparent;
 
     animation:
-        heroTextColor 6s linear infinite,
-        heroGlow 2s ease-in-out infinite alternate;
+        titleColor 6s linear infinite,
+        titleGlow 2s ease-in-out infinite alternate;
 }
 
-@keyframes heroTextColor {
+@keyframes titleColor {
+
     from {
-        background-position: 0% center;
+        background-position: 0%;
     }
 
     to {
-        background-position: 400% center;
+        background-position: 400%;
     }
 }
 
-@keyframes heroGlow {
+@keyframes titleGlow {
+
     from {
-        filter:
-            drop-shadow(
-                0 0 2px rgba(0, 234, 255, 0.2)
-            );
+        filter: drop-shadow(
+            0 0 3px rgba(0, 234, 255, 0.2)
+        );
     }
 
     to {
-        filter:
-            drop-shadow(
-                0 0 12px rgba(0, 234, 255, 0.5)
-            )
-            drop-shadow(
-                0 0 20px rgba(139, 92, 246, 0.3)
-            );
+        filter: drop-shadow(
+            0 0 15px rgba(0, 234, 255, 0.5)
+        );
     }
 }
-
-
-/* =========================
-   15. NGANH HOC
-   ========================= */
 
 .major {
-    font-size: 19px;
-
-    font-weight: 600;
-
     color: #cbd5e1;
 
-    margin-bottom: 10px;
+    font-size: 19px;
+
+    font-weight: bold;
 }
 
+.typing {
+    margin-top: 5px;
 
-/* =========================
-   16. TYPING
-   ========================= */
-
-#typedRole {
     color: #00eaff;
 
-    font-size: 18px;
-
-    font-weight: 700;
-
-    text-shadow:
-        0 0 10px rgba(0, 234, 255, 0.5);
+    font-weight: bold;
 }
 
 .typing-cursor {
-    color: #ec4899;
-
-    font-weight: bold;
-
     animation: cursorBlink 0.8s infinite;
 }
 
 @keyframes cursorBlink {
+
     0%,
-    45% {
+    50% {
         opacity: 1;
     }
 
-    50%,
+    51%,
     100% {
         opacity: 0;
     }
 }
 
-
-/* =========================
-   17. GIOI THIEU
-   ========================= */
-
 .intro {
-    max-width: 720px;
+    max-width: 700px;
 
-    margin: 20px auto 25px;
+    margin: 20px auto;
 
     color: #cbd5e1;
-
-    font-size: 16px;
 }
 
 
 /* =========================
-   18. THONG KE
+   STATS
    ========================= */
 
 .stats {
@@ -879,10 +679,10 @@ section {
     margin: 25px 0;
 }
 
-.stats > div {
+.stats div {
     min-width: 130px;
 
-    padding: 15px 20px;
+    padding: 15px;
 
     border-radius: 15px;
 
@@ -893,18 +693,32 @@ section {
     transition: 0.3s ease;
 }
 
-.stats > div:hover {
+.stats div:hover {
     transform: translateY(-5px);
 
     border-color: #00eaff;
 
     box-shadow:
-        0 0 18px rgba(0, 234, 255, 0.15);
+        0 0 15px rgba(0, 234, 255, 0.15);
+}
+
+.stats strong {
+    display: block;
+
+    color: #00eaff;
+
+    font-size: 24px;
+}
+
+.stats span {
+    color: #94a3b8;
+
+    font-size: 13px;
 }
 
 
 /* =========================
-   19. BUTTON
+   BUTTON
    ========================= */
 
 .home-buttons {
@@ -916,7 +730,7 @@ section {
 
     gap: 12px;
 
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .btn {
@@ -925,13 +739,14 @@ section {
     display: inline-flex;
 
     justify-content: center;
+
     align-items: center;
 
     padding: 13px 27px;
 
     border-radius: 30px;
 
-    font-weight: 700;
+    font-weight: bold;
 
     overflow: hidden;
 
@@ -948,10 +763,7 @@ section {
         #8b5cf6
     );
 
-    background-size: 200% auto;
-
-    box-shadow:
-        0 0 15px rgba(0, 234, 255, 0.2);
+    background-size: 200%;
 }
 
 .btn.secondary {
@@ -963,66 +775,15 @@ section {
 }
 
 .btn:hover {
-    transform: translateY(-5px) scale(1.02);
-}
-
-.btn.primary:hover {
-    background-position: right center;
+    transform: translateY(-5px);
 
     box-shadow:
-        0 0 20px rgba(0, 234, 255, 0.45),
-        0 0 35px rgba(139, 92, 246, 0.25);
-}
-
-.btn.secondary:hover {
-    color: #00eaff;
-
-    border-color: #00eaff;
-
-    box-shadow:
-        0 0 18px rgba(0, 234, 255, 0.2);
-}
-
-.btn::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 60%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.5),
-        transparent
-    );
-
-    transform: skewX(-20deg);
-
-    animation: buttonLight 3s infinite;
-}
-
-@keyframes buttonLight {
-    0% {
-        left: -120%;
-    }
-
-    45% {
-        left: 150%;
-    }
-
-    100% {
-        left: 150%;
-    }
+        0 0 20px rgba(0, 234, 255, 0.3);
 }
 
 
 /* =========================
-   20. SOCIAL
+   SOCIAL
    ========================= */
 
 .social {
@@ -1030,47 +791,34 @@ section {
 
     justify-content: center;
 
-    gap: 12px;
+    gap: 10px;
 
     margin-top: 25px;
 }
 
 .social a {
-    display: flex;
+    padding: 8px 15px;
 
-    justify-content: center;
-    align-items: center;
+    border-radius: 20px;
 
-    width: 42px;
-    height: 42px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.05);
+    color: #cbd5e1;
 
     border: 1px solid rgba(255, 255, 255, 0.1);
 
-    transition: 0.4s ease;
+    transition: 0.3s ease;
 }
 
 .social a:hover {
-    transform: translateY(-5px) scale(1.08);
-
     color: #00eaff;
 
     border-color: #00eaff;
 
     box-shadow:
-        0 0 15px rgba(0, 234, 255, 0.35);
+        0 0 12px rgba(0, 234, 255, 0.2);
 }
 
-
-/* =========================
-   21. SO THICH
-   ========================= */
-
 .social-interest {
-    margin-top: 15px;
+    margin-top: 12px;
 
     color: #94a3b8;
 
@@ -1079,45 +827,46 @@ section {
 
 
 /* =========================
-   22. MARQUEE
+   MARQUEE
    ========================= */
 
 .marquee {
-    width: 100%;
+    position: absolute;
 
-    margin-top: 35px;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
 
     overflow: hidden;
 
     border-top: 1px solid rgba(255, 255, 255, 0.06);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 
-    background: rgba(255, 255, 255, 0.025);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .marquee-track {
-    display: inline-flex;
+    display: flex;
 
     width: max-content;
 
-    padding: 14px 0;
+    padding: 12px 0;
 
-    animation: marqueeMove 18s linear infinite;
-
-    color: #00eaff;
-
-    font-size: 14px;
-
-    font-weight: 600;
+    animation: marquee 20s linear infinite;
 
     white-space: nowrap;
 }
 
 .marquee-track span {
     margin-right: 50px;
+
+    color: #00eaff;
+
+    font-weight: bold;
 }
 
-@keyframes marqueeMove {
+@keyframes marquee {
+
     from {
         transform: translateX(0);
     }
@@ -1129,7 +878,7 @@ section {
 
 
 /* =========================
-   23. ABOUT
+   ABOUT
    ========================= */
 
 .about-container {
@@ -1154,104 +903,83 @@ section {
 
     border-radius: 25px;
 
-    border: 3px solid transparent;
-
-    background:
-        linear-gradient(#080b18, #080b18) padding-box,
-        linear-gradient(
-            135deg,
-            #00eaff,
-            #8b5cf6,
-            #ec4899
-        ) border-box;
+    border: 3px solid #00eaff;
 
     box-shadow:
-        0 0 25px rgba(0, 234, 255, 0.25),
-        0 0 50px rgba(139, 92, 246, 0.15);
+        0 0 25px rgba(0, 234, 255, 0.25);
 
-    transition: 0.5s ease;
+    transition: 0.4s ease;
 }
 
 .about-image img:hover {
-    transform: scale(1.04) rotate(1deg);
-
-    box-shadow:
-        0 0 30px rgba(0, 234, 255, 0.45);
+    transform: scale(1.04);
 }
 
 .info-box {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
 
     gap: 12px;
 
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-.info-box p {
-    padding: 12px 15px;
+.info-item {
+    padding: 13px;
 
     border-radius: 12px;
 
-    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.05);
 
-    background: rgba(255, 255, 255, 0.04);
-
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.info-box strong {
+.info-item strong {
+    display: block;
+
     color: #00eaff;
+
+    font-size: 13px;
 }
 
-.about-content {
+.info-item span {
     color: #cbd5e1;
+
+    font-size: 14px;
 }
 
-.content-card {
-    position: relative;
+.content-card,
+.goal-card {
+    padding: 22px;
 
-    padding: 25px;
-
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 
     border-radius: 18px;
 
-    background: rgba(255, 255, 255, 0.045);
+    background: rgba(255, 255, 255, 0.05);
 
     border: 1px solid rgba(255, 255, 255, 0.08);
 
-    backdrop-filter: blur(10px);
-
     transition: 0.4s ease;
-
-    opacity: 0;
-    transform: translateY(30px);
 }
 
-.content-card.show {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-.content-card:hover {
-    transform: translateY(-6px);
+.content-card:hover,
+.goal-card:hover {
+    transform: translateY(-5px);
 
     border-color: rgba(0, 234, 255, 0.4);
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.2),
-        0 0 20px rgba(0, 234, 255, 0.08);
 }
 
 .sub-title {
-    margin-bottom: 12px;
-
     color: #00eaff;
 
-    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.content-card p,
+.goal-card p {
+    color: #cbd5e1;
 }
 
 .hobbies {
@@ -1267,13 +995,9 @@ section {
 
     border-radius: 20px;
 
-    color: #ffffff;
+    color: #cbd5e1;
 
-    background: linear-gradient(
-        90deg,
-        rgba(0, 234, 255, 0.12),
-        rgba(139, 92, 246, 0.12)
-    );
+    background: rgba(0, 234, 255, 0.07);
 
     border: 1px solid rgba(0, 234, 255, 0.15);
 
@@ -1281,32 +1005,14 @@ section {
 }
 
 .hobby:hover {
+    color: #00eaff;
+
     transform: translateY(-3px);
-
-    border-color: #00eaff;
-
-    box-shadow:
-        0 0 12px rgba(0, 234, 255, 0.15);
-}
-
-.goal-card {
-    padding: 22px;
-
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0, 234, 255, 0.08),
-            rgba(139, 92, 246, 0.08)
-        );
-
-    border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 
 /* =========================
-   24. SKILLS
+   SKILLS
    ========================= */
 
 .skills-container {
@@ -1323,37 +1029,22 @@ section {
 
     border-radius: 20px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.07),
-            rgba(255, 255, 255, 0.025)
-        );
+    background: rgba(255, 255, 255, 0.05);
 
     border: 1px solid rgba(255, 255, 255, 0.08);
-
-    backdrop-filter: blur(12px);
 
     transition: 0.4s ease;
 }
 
 .skill-card:hover,
 .soft-skill-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-7px);
 
-    border-color: rgba(0, 234, 255, 0.35);
-
-    box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.25),
-        0 0 25px rgba(0, 234, 255, 0.08);
+    border-color: rgba(0, 234, 255, 0.4);
 }
 
 .skill-item {
-    margin-bottom: 22px;
-}
-
-.skill-item:last-child {
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 
 .skill-name {
@@ -1361,11 +1052,11 @@ section {
 
     justify-content: space-between;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 
-    color: #e2e8f0;
+    color: #cbd5e1;
 
-    font-weight: 600;
+    font-size: 14px;
 }
 
 .progress {
@@ -1373,11 +1064,11 @@ section {
 
     height: 9px;
 
-    overflow: hidden;
-
     border-radius: 20px;
 
-    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .progress-bar {
@@ -1394,77 +1085,33 @@ section {
         #ec4899
     );
 
-    background-size: 200% auto;
+    background-size: 200%;
 
-    animation:
-        skillColor 4s linear infinite,
-        skillGlow 2s ease-in-out infinite alternate;
+    animation: progressColor 4s linear infinite;
 
     transition: width 1.5s ease;
 }
 
-@keyframes skillColor {
+@keyframes progressColor {
+
     from {
-        background-position: 0% center;
+        background-position: 0%;
     }
 
     to {
-        background-position: 200% center;
+        background-position: 200%;
     }
 }
-
-@keyframes skillGlow {
-    from {
-        box-shadow:
-            0 0 3px rgba(0, 234, 255, 0.3);
-    }
-
-    to {
-        box-shadow:
-            0 0 10px rgba(0, 234, 255, 0.7);
-    }
-}
-
-.html {
-    --skill-color: #f97316;
-}
-
-.css {
-    --skill-color: #3b82f6;
-}
-
-.js {
-    --skill-color: #facc15;
-}
-
-.teaching {
-    --skill-color: #22c55e;
-}
-
-.presentation {
-    --skill-color: #8b5cf6;
-}
-
-.teamwork {
-    --skill-color: #ec4899;
-}
-
-
-/* =========================
-   25. SOFT SKILLS
-   ========================= */
 
 .soft-skills {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
 
-    gap: 15px;
+    gap: 12px;
 }
 
 .circle-skill {
-    position: relative;
-
     padding: 15px;
 
     text-align: center;
@@ -1473,26 +1120,23 @@ section {
 
     background: rgba(255, 255, 255, 0.04);
 
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
     transition: 0.3s ease;
 }
 
 .circle-skill:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 
     border-color: #8b5cf6;
-
-    box-shadow:
-        0 0 15px rgba(139, 92, 246, 0.15);
 }
 
 .circle-skill strong {
     display: block;
 
-    margin-bottom: 5px;
-
     color: #00eaff;
+
+    font-size: 22px;
 }
 
 .circle-skill span {
@@ -1502,7 +1146,7 @@ section {
 }
 
 .extra-skills {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .skill-tags {
@@ -1510,13 +1154,11 @@ section {
 
     flex-wrap: wrap;
 
-    gap: 10px;
-
-    margin-top: 12px;
+    gap: 8px;
 }
 
 .skill-tags span {
-    padding: 7px 12px;
+    padding: 7px 11px;
 
     border-radius: 20px;
 
@@ -1526,155 +1168,61 @@ section {
 
     border: 1px solid rgba(255, 255, 255, 0.08);
 
-    transition: 0.3s ease;
-}
-
-.skill-tags span:hover {
-    color: #00eaff;
-
-    border-color: #00eaff;
-
-    transform: translateY(-2px);
+    font-size: 12px;
 }
 
 
 /* =========================
-   26. PROJECTS
+   PROJECTS
    ========================= */
 
 .projects-grid {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
 
     gap: 25px;
 }
 
 .project-card {
-    position: relative;
+    padding: 28px;
 
-    min-height: 230px;
-
-    padding: 30px;
+    min-height: 220px;
 
     border-radius: 20px;
 
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.025)
-        );
+    background: rgba(255, 255, 255, 0.05);
 
     border: 1px solid rgba(255, 255, 255, 0.08);
-
-    backdrop-filter: blur(12px);
-
-    transition: 0.45s ease;
-
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.project-card.show {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-.project-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 70%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.14),
-        transparent
-    );
-
-    transform: skewX(-20deg);
-
-    transition: 0.7s ease;
-}
-
-.project-card:hover::before {
-    left: 150%;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-
-    border-color: rgba(0, 234, 255, 0.4);
-
-    box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.3),
-        0 0 25px rgba(0, 234, 255, 0.1);
-}
-
-.project-icon {
-    width: 55px;
-    height: 55px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 18px;
-
-    border-radius: 15px;
-
-    font-size: 25px;
-
-    background: rgba(0, 234, 255, 0.1);
-
-    border: 1px solid rgba(0, 234, 255, 0.2);
 
     transition: 0.4s ease;
 }
 
-.project-card:hover .project-icon {
-    transform: rotate(8deg) scale(1.1);
+.project-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #00eaff;
+
+    box-shadow:
+        0 0 25px rgba(0, 234, 255, 0.12);
+}
+
+.project-icon {
+    font-size: 35px;
+
+    margin-bottom: 12px;
 }
 
 .project-card h3 {
-    margin-bottom: 10px;
-
     color: #00eaff;
 
-    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .project-card p {
     color: #cbd5e1;
 
     margin-bottom: 15px;
-}
-
-.project-blue {
-    --project-color: #00eaff;
-}
-
-.project-purple {
-    --project-color: #8b5cf6;
-}
-
-.project-green {
-    --project-color: #22c55e;
-}
-
-.project-orange {
-    --project-color: #f97316;
 }
 
 .tags {
@@ -1690,33 +1238,29 @@ section {
 
     border-radius: 15px;
 
-    font-size: 12px;
-
     color: #cbd5e1;
 
     background: rgba(255, 255, 255, 0.05);
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 12px;
 }
 
 
 /* =========================
-   27. ACHIEVEMENTS
+   ACHIEVEMENTS
    ========================= */
 
 .achievement-grid {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
 
     gap: 20px;
 
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .achievement-card {
-    position: relative;
-
     padding: 25px;
 
     border-radius: 18px;
@@ -1726,36 +1270,25 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.08);
 
     transition: 0.4s ease;
-
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.achievement-card.show {
-    opacity: 1;
-
-    transform: translateY(0);
 }
 
 .achievement-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-7px);
 
-    border-color: rgba(236, 72, 153, 0.5);
+    border-color: #ec4899;
 
     box-shadow:
-        0 0 25px rgba(236, 72, 153, 0.12);
+        0 0 20px rgba(236, 72, 153, 0.12);
 }
 
 .achievement-icon {
-    font-size: 32px;
+    font-size: 30px;
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .achievement-title {
     color: #ec4899;
-
-    font-size: 19px;
 
     margin-bottom: 8px;
 }
@@ -1764,19 +1297,14 @@ section {
     color: #cbd5e1;
 }
 
-
-/* =========================
-   28. ACADEMIC
-   ========================= */
-
 .academic-grid {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 18px;
+    gap: 15px;
 
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .academic-card {
@@ -1786,66 +1314,29 @@ section {
 
     border-radius: 18px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0, 234, 255, 0.06),
-            rgba(139, 92, 246, 0.05)
-        );
+    background: rgba(255, 255, 255, 0.05);
 
     border: 1px solid rgba(255, 255, 255, 0.08);
-
-    transition: 0.4s ease;
-
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.academic-card.show {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-.academic-card:hover {
-    transform: translateY(-7px);
-
-    border-color: #8b5cf6;
-
-    box-shadow:
-        0 0 20px rgba(139, 92, 246, 0.12);
 }
 
 .academic-card h3 {
     color: #00eaff;
 
-    margin-bottom: 7px;
+    font-size: 25px;
 }
 
-
-/* =========================
-   29. ACTIVITY
-   ========================= */
+.academic-card p {
+    color: #94a3b8;
+}
 
 .activity-card {
     padding: 25px;
 
     border-radius: 20px;
 
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.05);
 
     border: 1px solid rgba(255, 255, 255, 0.08);
-
-    opacity: 0;
-    transform: translateY(30px);
-
-    transition: 0.4s ease;
-}
-
-.activity-card.show {
-    opacity: 1;
-
-    transform: translateY(0);
 }
 
 .activity-icon {
@@ -1854,16 +1345,13 @@ section {
     margin-bottom: 10px;
 }
 
-.activity-card:hover {
-    border-color: #00eaff;
-
-    box-shadow:
-        0 0 20px rgba(0, 234, 255, 0.1);
+.activity-card p {
+    color: #cbd5e1;
 }
 
 
 /* =========================
-   30. CONTACT
+   CONTACT
    ========================= */
 
 .contact-container {
@@ -1872,6 +1360,8 @@ section {
     grid-template-columns: 0.9fr 1.1fr;
 
     gap: 30px;
+
+    width: 100%;
 }
 
 .contact-info {
@@ -1889,33 +1379,21 @@ section {
 
     gap: 15px;
 
-    padding: 18px;
+    padding: 17px;
 
     border-radius: 15px;
 
-    background: rgba(255, 255, 255, 0.045);
+    background: rgba(255, 255, 255, 0.05);
 
     border: 1px solid rgba(255, 255, 255, 0.08);
 
-    transition: 0.4s ease;
-
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.contact-item.show {
-    opacity: 1;
-
-    transform: translateY(0);
+    transition: 0.3s ease;
 }
 
 .contact-item:hover {
-    transform: translateX(6px);
+    transform: translateX(5px);
 
-    border-color: rgba(0, 234, 255, 0.4);
-
-    box-shadow:
-        0 0 18px rgba(0, 234, 255, 0.08);
+    border-color: #00eaff;
 }
 
 .contact-icon {
@@ -1931,19 +1409,15 @@ section {
 
     border-radius: 12px;
 
-    font-size: 20px;
-
     background: rgba(0, 234, 255, 0.08);
 
-    color: #00eaff;
+    font-size: 20px;
 }
 
 .contact-item strong {
     display: block;
 
-    color: #f8fafc;
-
-    margin-bottom: 3px;
+    color: #ffffff;
 }
 
 .contact-item span,
@@ -1960,8 +1434,6 @@ section {
 }
 
 .ready {
-    margin-top: 10px;
-
     padding: 20px;
 
     border-radius: 18px;
@@ -1970,7 +1442,7 @@ section {
         linear-gradient(
             135deg,
             rgba(0, 234, 255, 0.08),
-            rgba(236, 72, 153, 0.08)
+            rgba(139, 92, 246, 0.08)
         );
 
     border: 1px solid rgba(0, 234, 255, 0.12);
@@ -1978,31 +1450,27 @@ section {
 
 
 /* =========================
-   31. FORM
+   FORM
    ========================= */
 
 .contact-form {
-    padding: 30px;
+    padding: 28px;
 
     border-radius: 20px;
 
-    background: rgba(255, 255, 255, 0.045);
+    background: rgba(255, 255, 255, 0.05);
 
     border: 1px solid rgba(255, 255, 255, 0.08);
-
-    backdrop-filter: blur(10px);
 }
 
 .contact-form label {
     display: block;
 
-    margin-bottom: 7px;
+    margin-bottom: 6px;
 
     color: #cbd5e1;
 
     font-size: 14px;
-
-    font-weight: 600;
 }
 
 .contact-form input,
@@ -2013,17 +1481,15 @@ section {
 
     margin-bottom: 15px;
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
     border-radius: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
 
     outline: none;
 
     background: rgba(0, 0, 0, 0.2);
 
     color: #ffffff;
-
-    font-size: 15px;
 
     transition: 0.3s ease;
 }
@@ -2053,70 +1519,138 @@ section {
     color: #94a3b8;
 
     font-size: 12px;
-
-    text-align: center;
 }
 
 
 /* =========================
-   32. FOOTER
+   FOOTER
    ========================= */
 
 footer {
-    padding: 30px 5%;
+    padding: 30px;
 
     text-align: center;
 
-    color: #94a3b8;
-
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-    background: rgba(0, 0, 0, 0.2);
+    color: #94a3b8;
 }
 
 .footer-logo {
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 
     font-size: 20px;
 
-    font-weight: 800;
+    font-weight: bold;
 
-    background: linear-gradient(
-        90deg,
-        #00eaff,
-        #8b5cf6,
-        #ec4899
-    );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
+    color: #00eaff;
 }
 
 
 /* =========================
-   33. HIEU UNG XUAT HIEN
+   DARK / LIGHT
    ========================= */
 
-.glow {
-    animation:
-        glowPulse 2s ease-in-out infinite alternate;
+body:not(.dark) {
+    color: #0f172a;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(0, 180, 220, 0.1),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #e2e8f0
+        );
 }
 
-@keyframes glowPulse {
-    from {
-        opacity: 0.75;
-    }
+body:not(.dark) .navbar {
+    background: rgba(255, 255, 255, 0.85);
 
-    to {
-        opacity: 1;
-    }
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body:not(.dark) .nav-link {
+    color: #334155;
+}
+
+body:not(.dark) .nav-link:hover,
+body:not(.dark) .nav-link.active {
+    color: #0284c7;
+}
+
+body:not(.dark) .theme-toggle {
+    color: #334155;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    border-color: rgba(15, 23, 42, 0.1);
+}
+
+body:not(.dark) .home-card,
+body:not(.dark) .content-card,
+body:not(.dark) .goal-card,
+body:not(.dark) .skill-card,
+body:not(.dark) .soft-skill-card,
+body:not(.dark) .project-card,
+body:not(.dark) .achievement-card,
+body:not(.dark) .academic-card,
+body:not(.dark) .activity-card,
+body:not(.dark) .contact-item,
+body:not(.dark) .contact-form {
+    background: rgba(255, 255, 255, 0.7);
+
+    border-color: rgba(15, 23, 42, 0.1);
+}
+
+body:not(.dark) .major,
+body:not(.dark) .intro,
+body:not(.dark) .content-card p,
+body:not(.dark) .goal-card p,
+body:not(.dark) .project-card p,
+body:not(.dark) .achievement-card p,
+body:not(.dark) .activity-card p,
+body:not(.dark) .contact-item span,
+body:not(.dark) .contact-item a {
+    color: #475569;
+}
+
+body:not(.dark) .info-item {
+    background: rgba(255, 255, 255, 0.7);
+
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body:not(.dark) .info-item span {
+    color: #475569;
+}
+
+body:not(.dark) .skill-name,
+body:not(.dark) .contact-form label {
+    color: #334155;
+}
+
+body:not(.dark) .contact-form input,
+body:not(.dark) .contact-form textarea {
+    color: #0f172a;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    border-color: rgba(15, 23, 42, 0.1);
+}
+
+body:not(.dark) footer {
+    background: rgba(255, 255, 255, 0.5);
+
+    border-color: rgba(15, 23, 42, 0.08);
 }
 
 
 /* =========================
-   34. SCROLLBAR
+   SCROLLBAR
    ========================= */
 
 ::-webkit-scrollbar {
@@ -2137,187 +1671,35 @@ footer {
     );
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #00eaff;
-}
-
 
 /* =========================
-   35. DARK / LIGHT MODE
-   ========================= */
-
-body:not(.dark) {
-    color: #0f172a;
-
-    background:
-        radial-gradient(
-            circle at 10% 20%,
-            rgba(0, 180, 220, 0.12),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 30%,
-            rgba(139, 92, 246, 0.12),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #f8fafc,
-            #e2e8f0,
-            #f8fafc
-        );
-}
-
-body:not(.dark) .navbar {
-    background: rgba(255, 255, 255, 0.8);
-
-    border-bottom-color:
-        rgba(15, 23, 42, 0.08);
-}
-
-body:not(.dark) .navbar:hover {
-    background: rgba(255, 255, 255, 0.95);
-}
-
-body:not(.dark) .nav-link {
-    color: #334155;
-}
-
-body:not(.dark) .nav-link:hover,
-body:not(.dark) .nav-link.active {
-    color: #0284c7;
-}
-
-body:not(.dark) .home-card,
-body:not(.dark) .skill-card,
-body:not(.dark) .soft-skill-card,
-body:not(.dark) .project-card,
-body:not(.dark) .achievement-card,
-body:not(.dark) .academic-card,
-body:not(.dark) .activity-card,
-body:not(.dark) .contact-item,
-body:not(.dark) .contact-form,
-body:not(.dark) .content-card {
-    background: rgba(255, 255, 255, 0.65);
-
-    border-color:
-        rgba(15, 23, 42, 0.1);
-
-    box-shadow:
-        0 15px 40px rgba(15, 23, 42, 0.06);
-}
-
-body:not(.dark) .major,
-body:not(.dark) .intro,
-body:not(.dark) .about-content,
-body:not(.dark) .project-card p,
-body:not(.dark) .achievement-card p,
-body:not(.dark) .contact-item span,
-body:not(.dark) .contact-item a,
-body:not(.dark) .form-note,
-body:not(.dark) .social-interest {
-    color: #475569;
-}
-
-body:not(.dark) .skill-name {
-    color: #1e293b;
-}
-
-body:not(.dark) .stats > div,
-body:not(.dark) .hobby,
-body:not(.dark) .circle-skill,
-body:not(.dark) .skill-tags span,
-body:not(.dark) .tags span {
-    background: rgba(255, 255, 255, 0.6);
-
-    border-color:
-        rgba(15, 23, 42, 0.08);
-}
-
-body:not(.dark) .contact-form input,
-body:not(.dark) .contact-form textarea {
-    background: rgba(255, 255, 255, 0.8);
-
-    color: #0f172a;
-
-    border-color:
-        rgba(15, 23, 42, 0.12);
-}
-
-body:not(.dark) .contact-form label {
-    color: #334155;
-}
-
-body:not(.dark) footer {
-    color: #64748b;
-
-    background: rgba(255, 255, 255, 0.45);
-
-    border-top-color:
-        rgba(15, 23, 42, 0.08);
-}
-
-body:not(.dark) .about-image img,
-body:not(.dark) .avatar-box img {
-    background:
-        linear-gradient(#f8fafc, #f8fafc) padding-box,
-        linear-gradient(
-            135deg,
-            #00a8cc,
-            #8b5cf6,
-            #ec4899
-        ) border-box;
-}
-
-body:not(.dark) .theme-toggle {
-    color: #334155;
-
-    background: rgba(255, 255, 255, 0.7);
-
-    border-color:
-        rgba(15, 23, 42, 0.1);
-}
-
-
-/* =========================
-   36. TABLET
+   TABLET
    ========================= */
 
 @media (max-width: 1000px) {
 
     .navbar {
-        padding-left: 3%;
-        padding-right: 3%;
+        padding: 12px 2%;
     }
 
-    .navbar nav ul {
-        gap: 15px;
+    .navbar nav {
+        gap: 12px;
+    }
+
+    .nav-link {
+        font-size: 12px;
     }
 
     .about-container {
         grid-template-columns: 1fr;
-
-        text-align: center;
     }
 
-    .info-box {
-        text-align: left;
+    .about-image {
+        margin-bottom: 10px;
     }
 
     .skills-container {
         grid-template-columns: 1fr;
-    }
-
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .achievement-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .academic-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 
     .contact-container {
@@ -2327,21 +1709,21 @@ body:not(.dark) .theme-toggle {
 
 
 /* =========================
-   37. MOBILE
+   MOBILE
    ========================= */
 
 @media (max-width: 700px) {
 
     .navbar {
-        min-height: auto;
+        position: fixed;
 
         flex-wrap: wrap;
 
         justify-content: center;
 
-        gap: 10px;
+        padding: 10px 15px;
 
-        padding: 12px 4%;
+        gap: 8px;
     }
 
     .logo {
@@ -2356,25 +1738,19 @@ body:not(.dark) .theme-toggle {
         width: 100%;
 
         justify-content: center;
-    }
 
-    .navbar nav ul {
         gap: 10px;
-
-        flex-wrap: wrap;
-
-        justify-content: center;
     }
 
     .nav-link {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .theme-toggle {
         position: absolute;
 
-        right: 15px;
-        top: 12px;
+        right: 12px;
+        top: 10px;
 
         padding: 7px 10px;
     }
@@ -2384,33 +1760,28 @@ body:not(.dark) .theme-toggle {
     }
 
     section {
-        padding: 75px 0;
+        min-height: auto;
+
+        padding: 80px 0;
     }
 
     .home-section {
-        padding-top: 150px;
+        min-height: 100vh;
+
+        padding-top: 170px;
     }
 
     .home-card {
+        width: 94%;
+
         padding: 30px 18px;
-
-        border-radius: 22px;
-    }
-
-    .avatar-box {
-        width: 140px;
-        height: 140px;
     }
 
     .home-card h1 {
-        font-size: 43px;
+        font-size: 40px;
     }
 
     .major {
-        font-size: 16px;
-    }
-
-    #typedRole {
         font-size: 16px;
     }
 
@@ -2418,38 +1789,32 @@ body:not(.dark) .theme-toggle {
         font-size: 14px;
     }
 
-    .stats {
-        gap: 8px;
+    .avatar-box {
+        width: 135px;
+        height: 135px;
     }
 
-    .stats > div {
-        min-width: 100px;
+    .stats {
+        flex-direction: column;
+    }
 
-        padding: 11px 12px;
-
-        font-size: 13px;
+    .stats div {
+        width: 100%;
     }
 
     .home-buttons {
         flex-direction: column;
-
-        width: 100%;
     }
 
     .btn {
         width: 100%;
     }
 
-    .about-image img {
-        width: 220px;
-        height: 220px;
+    .section-title {
+        font-size: 30px;
     }
 
     .info-box {
-        grid-template-columns: 1fr;
-    }
-
-    .skills-container {
         grid-template-columns: 1fr;
     }
 
@@ -2461,96 +1826,53 @@ body:not(.dark) .theme-toggle {
         grid-template-columns: 1fr;
     }
 
-    .academic-grid {
-        grid-template-columns: 1fr;
-    }
-
     .achievement-grid {
         grid-template-columns: 1fr;
     }
 
-    .contact-container {
+    .academic-grid {
         grid-template-columns: 1fr;
     }
 
-    .contact-form {
-        padding: 22px;
+    .about-image img {
+        width: 220px;
+        height: 220px;
     }
 
-    .section-title {
-        font-size: 30px;
-
-        margin-bottom: 40px;
+    .contact-form {
+        padding: 20px;
     }
 }
 
 
 /* =========================
-   38. MOBILE NHO
+   MOBILE NHO
    ========================= */
 
 @media (max-width: 450px) {
 
-    .navbar nav ul {
-        gap: 7px;
+    .navbar nav {
+        gap: 6px;
     }
 
     .nav-link {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .home-card h1 {
-        font-size: 36px;
+        font-size: 34px;
+    }
+
+    .home-card {
+        padding: 25px 14px;
     }
 
     .avatar-box {
-        width: 125px;
-        height: 125px;
+        width: 120px;
+        height: 120px;
     }
 
-    .stats {
-        flex-direction: column;
-
-        width: 100%;
-    }
-
-    .stats > div {
-        width: 100%;
-    }
-
-    .social {
-        gap: 8px;
-    }
-
-    .social a {
-        width: 38px;
-        height: 38px;
-    }
-
-    .project-card,
-    .skill-card,
-    .soft-skill-card,
-    .achievement-card {
-        padding: 22px;
-    }
-}
-
-
-/* =========================
-   39. GIAM CHUYEN DONG
-   ========================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        scroll-behavior: auto !important;
-
-        transition-duration: 0.01ms !important;
+    .social-interest {
+        font-size: 12px;
     }
 }
