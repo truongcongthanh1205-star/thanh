@@ -1,6 +1,11 @@
+/* =========================================================
+   TRUONG CONG THANH - PERSONAL PORTFOLIO
+   STYLE.CSS
+   ========================================================= */
+
 /* =========================
-   RESET
-========================= */
+   1. CAU HINH CHUNG
+   ========================= */
 
 * {
     margin: 0;
@@ -14,40 +19,41 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f7f9ff;
-    color: #20243a;
+    color: #ffffff;
+    background: #080b18;
     line-height: 1.6;
-    transition: 0.3s;
+    overflow-x: hidden;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
 
-.container {
-    width: 90%;
-    max-width: 1150px;
-    margin: auto;
-}
-/* ================================
-   HIEU UNG CHUYEN NGHIEP
-   ================================ */
+/* =========================
+   2. NEN CHUYEN MAU
+   ========================= */
 
-/* Nen gradient chuyen mau nhe */
 body {
-    background: linear-gradient(
-        -45deg,
-        #0f172a,
-        #172554,
-        #312e81,
-        #0f172a
-    );
-    background-size: 400% 400%;
-    animation: bgMove 12s ease infinite;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(0, 234, 255, 0.12), transparent 30%),
+        radial-gradient(circle at 90% 30%, rgba(139, 92, 246, 0.15), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(236, 72, 153, 0.10), transparent 30%),
+        linear-gradient(
+            -45deg,
+            #080b18,
+            #0f172a,
+            #111827,
+            #1e1b4b,
+            #080b18
+        );
+
+    background-size:
+        auto,
+        auto,
+        auto,
+        400% 400%;
+
+    animation: backgroundMove 15s ease infinite;
 }
 
-@keyframes bgMove {
+@keyframes backgroundMove {
     0% {
         background-position: 0% 50%;
     }
@@ -62,17 +68,21 @@ body {
 }
 
 
-/* ================================
-   DONG SANG CHAY TRANG
-   ================================ */
+/* =========================
+   3. HIEU UNG DONG SANG
+   ========================= */
 
 body::before {
     content: "";
+
     position: fixed;
+
     top: 0;
     left: -100%;
-    width: 70%;
+
+    width: 60%;
     height: 2px;
+
     background: linear-gradient(
         90deg,
         transparent,
@@ -81,29 +91,101 @@ body::before {
         #8b5cf6,
         transparent
     );
-    box-shadow: 0 0 15px #00eaff;
-    animation: lineRun 5s linear infinite;
+
+    box-shadow:
+        0 0 8px #00eaff,
+        0 0 20px #8b5cf6;
+
+    animation: runningLine 5s linear infinite;
+
     z-index: 9999;
+
     pointer-events: none;
 }
 
-@keyframes lineRun {
-    0% {
+@keyframes runningLine {
+    from {
         left: -100%;
     }
 
-    100% {
-        left: 100%;
+    to {
+        left: 120%;
     }
 }
 
 
-/* ================================
-   TEXT DOI MAU
-   ================================ */
+/* =========================
+   4. LINK
+   ========================= */
 
-h1,
-.hero h1 {
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* =========================
+   5. CONTAINER
+   ========================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* =========================
+   6. HEADER
+   ========================= */
+
+header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 18px 0;
+
+    background: rgba(8, 11, 24, 0.75);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    z-index: 1000;
+
+    transition: 0.4s ease;
+}
+
+header:hover {
+    background: rgba(8, 11, 24, 0.9);
+}
+
+
+/* =========================
+   7. NAVBAR
+   ========================= */
+
+nav {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+
+    font-weight: bold;
+
     background: linear-gradient(
         90deg,
         #00eaff,
@@ -119,162 +201,325 @@ h1,
 
     color: transparent;
 
-    animation: textColor 5s linear infinite;
+    animation: logoColor 5s linear infinite;
 }
 
-@keyframes textColor {
-    0% {
+@keyframes logoColor {
+    from {
         background-position: 0% center;
     }
 
-    100% {
+    to {
         background-position: 300% center;
     }
 }
 
 
-/* ================================
-   HIEU UNG NHAP NHAY NHE
-   ================================ */
+nav ul {
+    display: flex;
 
-.hero h1 {
-    animation:
-        textColor 5s linear infinite,
-        glowText 2s ease-in-out infinite alternate;
+    align-items: center;
+
+    gap: 28px;
 }
 
-@keyframes glowText {
-    from {
-        filter: drop-shadow(0 0 3px rgba(0, 234, 255, 0.3));
-    }
-
-    to {
-        filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.8));
-    }
-}
-
-
-/* ================================
-   CAC THE CARD
-   ================================ */
-
-.card,
-.skill-card,
-.project-card,
-.achievement-card {
+nav ul li a {
     position: relative;
-    overflow: hidden;
-    transition: 0.4s ease;
-}
 
+    color: #dbeafe;
 
-/* Dong sang chay qua card */
+    font-size: 15px;
 
-.card::before,
-.skill-card::before,
-.project-card::before,
-.achievement-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 70%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.15),
-        transparent
-    );
-
-    transform: skewX(-20deg);
-    transition: 0.6s;
-}
-
-.card:hover::before,
-.skill-card:hover::before,
-.project-card:hover::before,
-.achievement-card:hover::before {
-    left: 150%;
-}
-
-
-/* Card noi len khi hover */
-
-.card:hover,
-.skill-card:hover,
-.project-card:hover,
-.achievement-card:hover {
-    transform: translateY(-8px);
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.25),
-        0 0 20px rgba(0, 234, 255, 0.15);
-}
-
-
-/* ================================
-   ANH AVATAR
-   ================================ */
-
-.profile-img,
-.avatar,
-.hero img {
-    transition: 0.5s ease;
-}
-
-.profile-img:hover,
-.avatar:hover,
-.hero img:hover {
-    transform: scale(1.05);
-    filter:
-        drop-shadow(0 0 10px #00eaff)
-        drop-shadow(0 0 20px #8b5cf6);
-}
-
-
-/* ================================
-   NUT BAM
-   ================================ */
-
-button,
-.btn,
-a.btn {
-    position: relative;
-    overflow: hidden;
     transition: 0.3s ease;
 }
 
-button:hover,
-.btn:hover,
-a.btn:hover {
-    transform: translateY(-3px);
-    box-shadow:
-        0 0 10px rgba(0, 234, 255, 0.5),
-        0 0 25px rgba(139, 92, 246, 0.3);
+nav ul li a:hover {
+    color: #00eaff;
+
+    text-shadow:
+        0 0 8px rgba(0, 234, 255, 0.8);
+}
+
+nav ul li a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #00eaff,
+        #8b5cf6
+    );
+
+    box-shadow: 0 0 8px #00eaff;
+
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
 }
 
 
-/* ================================
-   HIEU UNG CHAM SANG
-   ================================ */
+/* =========================
+   8. SECTION CHUNG
+   ========================= */
 
-button::after,
-.btn::after {
+section {
+    padding: 100px 0;
+
+    position: relative;
+}
+
+section h2 {
+    text-align: center;
+
+    font-size: 36px;
+
+    margin-bottom: 50px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #00eaff,
+        #8b5cf6,
+        #ffffff
+    );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation: headingColor 6s linear infinite;
+}
+
+@keyframes headingColor {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 300% center;
+    }
+}
+
+
+/* =========================
+   9. HERO
+   ========================= */
+
+#home {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-top: 100px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+#home::before {
     content: "";
+
     position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 234, 255, 0.12);
+
+    filter: blur(80px);
+
+    top: 10%;
+    left: -100px;
+
+    animation: floatingGlow 6s ease-in-out infinite;
+}
+
+#home::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: rgba(139, 92, 246, 0.15);
+
+    filter: blur(80px);
+
+    right: -100px;
+    bottom: 5%;
+
+    animation: floatingGlow 8s ease-in-out infinite reverse;
+}
+
+@keyframes floatingGlow {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-30px) scale(1.1);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: clamp(42px, 7vw, 80px);
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #00eaff,
+        #ffffff,
+        #8b5cf6,
+        #ec4899,
+        #00eaff
+    );
+
+    background-size: 400% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        heroTextColor 6s linear infinite,
+        heroGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes heroTextColor {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 400% center;
+    }
+}
+
+@keyframes heroGlow {
+    from {
+        filter: drop-shadow(0 0 2px rgba(0, 234, 255, 0.2));
+    }
+
+    to {
+        filter:
+            drop-shadow(0 0 12px rgba(0, 234, 255, 0.5))
+            drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+    }
+}
+
+
+.hero-content p {
+    color: #cbd5e1;
+
+    font-size: 18px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   10. BUTTON
+   ========================= */
+
+.btn {
+    display: inline-block;
+
+    position: relative;
+
+    padding: 13px 28px;
+
+    margin-right: 10px;
+
+    border-radius: 30px;
+
+    color: #ffffff;
+
+    font-weight: bold;
+
+    background: linear-gradient(
+        90deg,
+        #00a8cc,
+        #6366f1,
+        #8b5cf6
+    );
+
+    background-size: 200% auto;
+
+    box-shadow:
+        0 0 10px rgba(0, 234, 255, 0.2);
+
+    overflow: hidden;
+
+    transition: 0.4s ease;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+
+    background-position: right center;
+
+    box-shadow:
+        0 0 15px rgba(0, 234, 255, 0.5),
+        0 0 30px rgba(139, 92, 246, 0.3);
+}
+
+.btn::before {
+    content: "";
+
+    position: absolute;
+
     top: 0;
     left: -120%;
+
     width: 60%;
     height: 100%;
 
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255,255,255,0.35),
+        rgba(255, 255, 255, 0.5),
         transparent
     );
 
     transform: skewX(-20deg);
+
     animation: buttonLight 3s infinite;
 }
 
@@ -283,7 +528,7 @@ button::after,
         left: -120%;
     }
 
-    50% {
+    45% {
         left: 150%;
     }
 
@@ -293,763 +538,676 @@ button::after,
 }
 
 
-/* ================================
-   THANH CUON
-   ================================ */
+/* =========================
+   11. ABOUT
+   ========================= */
+
+.about-content {
+    display: grid;
+
+    grid-template-columns: 1fr 1.5fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+.about-image {
+    text-align: center;
+}
+
+.about-image img {
+    width: 260px;
+    height: 260px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 4px solid transparent;
+
+    background:
+        linear-gradient(#080b18, #080b18) padding-box,
+        linear-gradient(
+            135deg,
+            #00eaff,
+            #8b5cf6,
+            #ec4899
+        ) border-box;
+
+    box-shadow:
+        0 0 20px rgba(0, 234, 255, 0.3),
+        0 0 50px rgba(139, 92, 246, 0.2);
+
+    animation:
+        avatarFloat 5s ease-in-out infinite,
+        avatarGlow 3s ease-in-out infinite alternate;
+
+    transition: 0.5s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.06) rotate(2deg);
+}
+
+@keyframes avatarFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes avatarGlow {
+    from {
+        box-shadow:
+            0 0 15px rgba(0, 234, 255, 0.3);
+    }
+
+    to {
+        box-shadow:
+            0 0 25px rgba(0, 234, 255, 0.6),
+            0 0 50px rgba(139, 92, 246, 0.4);
+    }
+}
+
+
+.about-text {
+    color: #cbd5e1;
+
+    font-size: 17px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   12. SKILLS
+   ========================= */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.skill-card {
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.4s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(0, 234, 255, 0.5);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(0, 234, 255, 0.15);
+}
+
+.skill-card h3 {
+    margin-bottom: 15px;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   13. THANH KY NANG
+   ========================= */
+
+.skill-bar {
+    width: 100%;
+
+    height: 9px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #00eaff,
+        #6366f1,
+        #ec4899
+    );
+
+    background-size: 200% auto;
+
+    animation:
+        skillColor 4s linear infinite,
+        skillGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes skillColor {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes skillGlow {
+    from {
+        box-shadow: 0 0 3px rgba(0, 234, 255, 0.3);
+    }
+
+    to {
+        box-shadow:
+            0 0 10px rgba(0, 234, 255, 0.7);
+    }
+}
+
+
+/* =========================
+   14. PROJECTS
+   ========================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.project-card {
+    position: relative;
+
+    padding: 30px;
+
+    min-height: 220px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.03)
+        );
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(12px);
+
+    overflow: hidden;
+
+    transition: 0.4s ease;
+}
+
+.project-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.16),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: 0.7s ease;
+}
+
+.project-card:hover::before {
+    left: 150%;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+
+    border-color: rgba(0, 234, 255, 0.4);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(0, 234, 255, 0.12);
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+
+    color: #00eaff;
+}
+
+.project-card p {
+    color: #cbd5e1;
+}
+
+
+/* =========================
+   15. ACHIEVEMENTS
+   ========================= */
+
+.achievements-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.achievement-card {
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    transition: 0.4s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(236, 72, 153, 0.5);
+
+    box-shadow:
+        0 0 25px rgba(236, 72, 153, 0.12);
+}
+
+.achievement-card h3 {
+    color: #ec4899;
+
+    margin-bottom: 10px;
+}
+
+.achievement-card p {
+    color: #cbd5e1;
+}
+
+
+/* =========================
+   16. CONTACT
+   ========================= */
+
+.contact-content {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 40px;
+}
+
+.contact-info {
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+
+    color: #cbd5e1;
+}
+
+.contact-info a {
+    color: #00eaff;
+
+    transition: 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ec4899;
+
+    text-shadow:
+        0 0 8px rgba(236, 72, 153, 0.7);
+}
+
+
+/* =========================
+   17. FORM
+   ========================= */
+
+form {
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: rgba(0,0,0,0.2);
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    transition: 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #00eaff;
+
+    box-shadow:
+        0 0 12px rgba(0,234,255,0.15);
+}
+
+textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================
+   18. FOOTER
+   ========================= */
+
+footer {
+    padding: 30px 0;
+
+    text-align: center;
+
+    color: #94a3b8;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(0,0,0,0.2);
+}
+
+
+/* =========================
+   19. SOCIAL ICON
+   ========================= */
+
+.social-links {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    transition: 0.4s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px) scale(1.05);
+
+    color: #00eaff;
+
+    border-color: #00eaff;
+
+    box-shadow:
+        0 0 15px rgba(0,234,255,0.4);
+}
+
+
+/* =========================
+   20. HIEU UNG NHAP NHE
+   ========================= */
+
+.glow {
+    animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    from {
+        opacity: 0.75;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   21. SCROLLBAR
+   ========================= */
 
 ::-webkit-scrollbar {
     width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #0f172a;
+    background: #080b18;
 }
 
 ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+
     background: linear-gradient(
         #00eaff,
-        #8b5cf6,
+        #6366f1,
         #ec4899
     );
-
-    border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: #00eaff;
 }
 
-/* =========================
-   HEADER
-========================= */
-
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-}
-
-.nav-container {
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: #5b4bdb;
-}
-
-.logo span {
-    color: #ff4f81;
-}
-
-.navbar {
-    display: flex;
-    gap: 25px;
-}
-
-.nav-link {
-    font-size: 15px;
-    font-weight: 600;
-    transition: 0.3s;
-    position: relative;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: #5b4bdb;
-}
-
-.nav-link.active::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #5b4bdb, #ff4f81);
-    border-radius: 5px;
-}
-
-.theme-btn {
-    border: none;
-    background: #eeeaff;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-}
-
 
 /* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 100vh;
-    padding-top: 75px;
-    display: flex;
-    align-items: center;
-    background:
-        linear-gradient(135deg, #f7f9ff, #eeeaff);
-}
-
-.hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-}
-
-.hero-content {
-    flex: 1;
-}
-
-.hello {
-    color: #5b4bdb;
-    font-weight: bold;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-}
-
-.hero h1 {
-    font-size: 55px;
-    line-height: 1.15;
-    margin-bottom: 15px;
-}
-
-.hero h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.hero h2 span {
-    color: #5b4bdb;
-}
-
-.hero-description {
-    max-width: 600px;
-    color: #666;
-    margin-bottom: 30px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-block;
-    padding: 13px 25px;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: 0.3s;
-    border: 2px solid transparent;
-}
-
-.primary-btn {
-    background: linear-gradient(135deg, #5b4bdb, #8c6cff);
-    color: white;
-}
-
-.primary-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(91, 75, 219, 0.3);
-}
-
-.secondary-btn {
-    border-color: #5b4bdb;
-    color: #5b4bdb;
-}
-
-.secondary-btn:hover {
-    background: #5b4bdb;
-    color: white;
-}
-
-.social {
-    display: flex;
-    gap: 12px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.social a {
-    padding: 9px 15px;
-    background: white;
-    border-radius: 20px;
-    font-size: 14px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
-    transition: 0.3s;
-}
-
-.social a:hover {
-    transform: translateY(-3px);
-    color: #5b4bdb;
-}
-
-.hero-image {
-    flex: 0 0 380px;
-    display: flex;
-    justify-content: center;
-}
-
-.image-circle {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    padding: 10px;
-    background: linear-gradient(135deg, #5b4bdb, #ff4f81);
-    box-shadow: 0 20px 50px rgba(91, 75, 219, 0.25);
-}
-
-.image-circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 8px solid white;
-}
-
-
-/* =========================
-   SECTION
-========================= */
-
-.section {
-    padding: 100px 0;
-}
-
-.skills-section,
-.achievements-section {
-    background: #eef1ff;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 55px;
-}
-
-.section-title p {
-    color: #ff4f81;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-}
-
-.section-title h2 {
-    font-size: 36px;
-}
-
-.section-title span {
-    display: block;
-    width: 70px;
-    height: 4px;
-    margin: 15px auto 0;
-    border-radius: 5px;
-    background: linear-gradient(90deg, #5b4bdb, #ff4f81);
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: start;
-}
-
-.about-text h3 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.about-text p {
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.about-info {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-}
-
-.info-item {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 14px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.info-item:last-child {
-    border-bottom: none;
-}
-
-.info-item strong {
-    color: #5b4bdb;
-}
-
-
-/* =========================
-   SKILLS
-========================= */
-
-.skills-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.skills-box {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-}
-
-.skills-box h3 {
-    margin-bottom: 25px;
-    font-size: 22px;
-}
-
-.skill {
-    margin-bottom: 22px;
-}
-
-.skill-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 7px;
-    font-weight: 600;
-}
-
-.progress {
-    width: 100%;
-    height: 10px;
-    background: #e5e5e5;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    border-radius: 20px;
-    background: linear-gradient(90deg, #5b4bdb, #ff4f81);
-}
-
-
-/* =========================
-   PROJECTS
-========================= */
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.project-card {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    transition: 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(91, 75, 219, 0.15);
-}
-
-.project-icon {
-    font-size: 45px;
-    margin-bottom: 15px;
-}
-
-.project-card h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
-}
-
-.project-card p {
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.project-tags span {
-    background: #eeeaff;
-    color: #5b4bdb;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-
-/* =========================
-   ACHIEVEMENTS
-========================= */
-
-.achievement-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.achievement-card {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    transition: 0.3s;
-}
-
-.achievement-card:hover {
-    transform: translateY(-6px);
-}
-
-.achievement-icon {
-    font-size: 45px;
-    margin-bottom: 15px;
-}
-
-.achievement-card h3 {
-    margin-bottom: 12px;
-}
-
-.achievement-card p {
-    color: #666;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-.contact-info,
-.contact-form-box {
-    background: white;
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-}
-
-.contact-info h3,
-.contact-form-box h3 {
-    font-size: 25px;
-    margin-bottom: 15px;
-}
-
-.contact-info > p {
-    color: #666;
-    margin-bottom: 25px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.contact-icon {
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #eeeaff;
-    border-radius: 50%;
-    font-size: 20px;
-}
-
-.contact-item strong {
-    display: block;
-    color: #5b4bdb;
-}
-
-.contact-item a,
-.contact-item span {
-    color: #666;
-}
-
-.contact-item a:hover {
-    color: #ff4f81;
-}
-
-.form-group {
-    margin-bottom: 18px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 7px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 13px 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    outline: none;
-    font-family: inherit;
-    resize: vertical;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #5b4bdb;
-}
-
-.contact-btn {
-    border: none;
-    cursor: pointer;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-    background: #17182b;
-    color: white;
-    padding: 40px 0 20px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer h3 {
-    font-size: 22px;
-    margin-bottom: 5px;
-}
-
-.footer p {
-    color: #aaa;
-}
-
-.footer-social {
-    display: flex;
-    gap: 10px;
-}
-
-.footer-social a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #292a43;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
-}
-
-.footer-social a:hover {
-    background: #5b4bdb;
-}
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #303147;
-    margin-top: 30px;
-    padding-top: 20px;
-}
-
-
-/* =========================
-   DARK MODE
-========================= */
-
-body.dark {
-    background: #111222;
-    color: #f5f5f5;
-}
-
-body.dark .header {
-    background: rgba(20, 20, 38, 0.95);
-}
-
-body.dark .hero {
-    background: linear-gradient(135deg, #111222, #1c1a35);
-}
-
-body.dark .hero-description,
-body.dark .about-text p,
-body.dark .project-card p,
-body.dark .achievement-card p,
-body.dark .contact-info > p {
-    color: #bbb;
-}
-
-body.dark .social a,
-body.dark .about-info,
-body.dark .skills-box,
-body.dark .project-card,
-body.dark .achievement-card,
-body.dark .contact-info,
-body.dark .contact-form-box {
-    background: #1d1e32;
-    color: #f5f5f5;
-}
-
-body.dark .skills-section,
-body.dark .achievements-section {
-    background: #17182b;
-}
-
-body.dark .info-item {
-    border-color: #34354b;
-}
-
-body.dark .info-item span,
-body.dark .contact-item a,
-body.dark .contact-item span {
-    color: #bbb;
-}
-
-body.dark .form-group input,
-body.dark .form-group textarea {
-    background: #292a43;
-    border-color: #40415a;
-    color: white;
-}
-
-body.dark .theme-btn {
-    background: #292a43;
-}
-
-body.dark .social a {
-    box-shadow: none;
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
+   22. RESPONSIVE TABLET
+   ========================= */
 
 @media (max-width: 900px) {
 
-    .navbar {
-        gap: 12px;
-    }
-
-    .hero-container {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 60px 0;
-    }
-
-    .hero-buttons,
-    .social {
-        justify-content: center;
-    }
-
-    .hero-image {
-        flex: auto;
-    }
-
-    .project-grid,
-    .achievement-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-
-@media (max-width: 700px) {
-
-    .nav-container {
-        height: auto;
-        padding: 15px 0;
-        flex-wrap: wrap;
+    nav ul {
         gap: 15px;
     }
 
-    .navbar {
-        order: 3;
-        width: 100%;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding-bottom: 5px;
-    }
-
-    .nav-link {
-        white-space: nowrap;
-    }
-
-    .hero h1 {
-        font-size: 40px;
-    }
-
-    .hero h2 {
-        font-size: 22px;
-    }
-
-    .image-circle {
-        width: 260px;
-        height: 260px;
-    }
-
-    .about-content,
-    .skills-container,
-    .contact-container,
-    .project-grid,
-    .achievement-grid {
+    .about-content {
         grid-template-columns: 1fr;
-    }
-
-    .section {
-        padding: 70px 0;
-    }
-
-    .section-title h2 {
-        font-size: 30px;
-    }
-
-    .info-item {
-        flex-direction: column;
-        gap: 3px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 20px;
         text-align: center;
     }
 
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   23. RESPONSIVE MOBILE
+   ========================= */
+
+@media (max-width: 650px) {
+
+    header {
+        padding: 14px 0;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    nav ul {
+        gap: 12px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+    }
+
+    section {
+        padding: 75px 0;
+    }
+
+    section h2 {
+        font-size: 28px;
+
+        margin-bottom: 35px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 45px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .btn {
+        margin-bottom: 10px;
+    }
+
+    .about-image img {
+        width: 210px;
+        height: 210px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   24. HIEU UNG KHI CHON TEXT
+   ========================= */
+
+::selection {
+    background: #00eaff;
+
+    color: #080b18;
+}
+
+
+/* =========================
+   25. HIEN NOI DUNG MUOT
+   ========================= */
+
+section > .container {
+    animation: sectionAppear 1s ease both;
+}
+
+@keyframes sectionAppear {
+    from {
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
 }
