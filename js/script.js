@@ -1,540 +1,356 @@
-/* =========================================================
-   TRUONG CONG THANH - PERSONAL PORTFOLIO
-   SCRIPT.JS
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
 
+    /* =====================================================
+       1. NÚT SÁNG / TỐI
+    ===================================================== */
 
-/* =========================
-   DARK / LIGHT MODE
-   ========================= */
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.querySelector(".theme-icon");
+    const themeLabel = document.querySelector(".theme-label");
 
-const themeToggle = document.getElementById("themeToggle");
 
-const themeIcon = document.querySelector(".theme-icon");
+    function setTheme(theme) {
 
-const themeLabel = document.querySelector(".theme-label");
+        if (theme === "light") {
 
+            document.body.classList.add("light");
 
-function updateThemeButton() {
-
-    const isDark =
-        document.body.classList.contains("dark");
-
-    if (isDark) {
-
-        if (themeIcon) {
-            themeIcon.textContent = "☀️";
-        }
-
-        if (themeLabel) {
-            themeLabel.textContent = "Sáng";
-        }
-
-    } else {
-
-        if (themeIcon) {
-            themeIcon.textContent = "🌙";
-        }
-
-        if (themeLabel) {
-            themeLabel.textContent = "Tối";
-        }
-    }
-}
-
-
-const savedTheme =
-    localStorage.getItem("theme");
-
-
-if (savedTheme === "light") {
-
-    document.body.classList.remove("dark");
-
-} else {
-
-    document.body.classList.add("dark");
-
-}
-
-
-updateThemeButton();
-
-
-if (themeToggle) {
-
-    themeToggle.addEventListener(
-        "click",
-        function () {
-
-            document.body.classList.toggle("dark");
-
-            const isDark =
-                document.body.classList.contains("dark");
-
-            localStorage.setItem(
-                "theme",
-                isDark ? "dark" : "light"
-            );
-
-            updateThemeButton();
-
-        }
-    );
-
-}
-
-
-/* =========================
-   HIỆU ỨNG GÕ CHỮ
-   ========================= */
-
-const typedRole =
-    document.getElementById("typedRole");
-
-
-const roles = [
-
-    "Sinh viên Sư phạm Tin học",
-
-    "Sinh viên Sư phạm Toán học",
-
-    "Người yêu thích công nghệ",
-
-    "Người yêu thích lập trình"
-
-];
-
-
-let roleIndex = 0;
-
-let charIndex = 0;
-
-let deleting = false;
-
-
-function typingEffect() {
-
-    if (!typedRole) {
-        return;
-    }
-
-
-    const currentRole =
-        roles[roleIndex];
-
-
-    if (!deleting) {
-
-        typedRole.textContent =
-            currentRole.substring(
-                0,
-                charIndex + 1
-            );
-
-        charIndex++;
-
-
-        if (
-            charIndex ===
-            currentRole.length
-        ) {
-
-            deleting = true;
-
-            setTimeout(
-                typingEffect,
-                1800
-            );
-
-            return;
-        }
-
-
-    } else {
-
-        typedRole.textContent =
-            currentRole.substring(
-                0,
-                charIndex - 1
-            );
-
-        charIndex--;
-
-
-        if (charIndex === 0) {
-
-            deleting = false;
-
-            roleIndex++;
-
-            if (
-                roleIndex >=
-                roles.length
-            ) {
-
-                roleIndex = 0;
-
+            if (themeIcon) {
+                themeIcon.textContent = "🌙";
             }
 
+            if (themeLabel) {
+                themeLabel.textContent = "Tối";
+            }
+
+        } else {
+
+            document.body.classList.remove("light");
+
+            if (themeIcon) {
+                themeIcon.textContent = "☀️";
+            }
+
+            if (themeLabel) {
+                themeLabel.textContent = "Sáng";
+            }
         }
+
+        localStorage.setItem("theme", theme);
+    }
+
+
+    /* Lấy chế độ đã lưu */
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "light") {
+        setTheme("light");
+    } else {
+        setTheme("dark");
+    }
+
+
+    /* Khi bấm nút */
+
+    if (themeToggle) {
+
+        themeToggle.addEventListener("click", function () {
+
+            const isLight =
+                document.body.classList.contains("light");
+
+            if (isLight) {
+                setTheme("dark");
+            } else {
+                setTheme("light");
+            }
+
+        });
 
     }
 
 
-    const speed =
-        deleting ? 50 : 90;
+    /* =====================================================
+       2. HIỆU ỨNG CHỮ ĐANG GÕ
+    ===================================================== */
+
+    const typedRole = document.getElementById("typedRole");
+
+    if (typedRole) {
+
+        const roles = [
+            "Sinh viên Sư phạm Tin học",
+            "Sinh viên Sư phạm Toán học",
+            "Người yêu công nghệ",
+            "Future Teacher"
+        ];
+
+        let roleIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
 
 
-    setTimeout(
-        typingEffect,
-        speed
-    );
-}
+        function typeEffect() {
+
+            const currentRole = roles[roleIndex];
 
 
-typingEffect();
+            if (!deleting) {
+
+                typedRole.textContent =
+                    currentRole.substring(0, charIndex + 1);
+
+                charIndex++;
 
 
-/* =========================
-   FORM LIÊN HỆ
-   ========================= */
+                if (charIndex === currentRole.length) {
 
-const contactForm =
-    document.getElementById("contactForm");
+                    deleting = true;
 
+                    setTimeout(typeEffect, 1800);
 
-if (contactForm) {
+                    return;
+                }
 
-    contactForm.addEventListener(
-        "submit",
-        function (event) {
+            } else {
 
-            event.preventDefault();
+                typedRole.textContent =
+                    currentRole.substring(0, charIndex - 1);
 
-
-            const nameInput =
-                document.getElementById(
-                    "contactName"
-                );
+                charIndex--;
 
 
-            const name =
-                nameInput.value.trim();
+                if (charIndex === 0) {
+
+                    deleting = false;
+
+                    roleIndex++;
+
+                    if (roleIndex >= roles.length) {
+                        roleIndex = 0;
+                    }
+
+                }
+            }
 
 
-            if (name === "") {
+            const speed = deleting ? 45 : 90;
+
+            setTimeout(typeEffect, speed);
+        }
+
+
+        typeEffect();
+    }
+
+
+    /* =====================================================
+       3. FORM LIÊN HỆ
+    ===================================================== */
+
+    const contactForm =
+        document.getElementById("contactForm");
+
+
+    if (contactForm) {
+
+        contactForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const nameInput =
+                    document.getElementById("contactName");
+
+                const emailInput =
+                    document.getElementById("contactEmail");
+
+                const subjectInput =
+                    document.getElementById("contactSubject");
+
+                const messageInput =
+                    document.getElementById("contactMessage");
+
+
+                const name =
+                    nameInput.value.trim();
+
+                const email =
+                    emailInput.value.trim();
+
+                const subject =
+                    subjectInput.value.trim();
+
+                const message =
+                    messageInput.value.trim();
+
+
+                if (name === "") {
+
+                    alert("Vui lòng nhập họ tên.");
+
+                    nameInput.focus();
+
+                    return;
+                }
+
+
+                if (email === "") {
+
+                    alert("Vui lòng nhập email.");
+
+                    emailInput.focus();
+
+                    return;
+                }
+
+
+                if (subject === "") {
+
+                    alert("Vui lòng nhập chủ đề.");
+
+                    subjectInput.focus();
+
+                    return;
+                }
+
+
+                if (message === "") {
+
+                    alert("Vui lòng nhập nội dung.");
+
+                    messageInput.focus();
+
+                    return;
+                }
+
 
                 alert(
-                    "Vui lòng nhập họ và tên!"
+                    "Cảm ơn " +
+                    name +
+                    "! Tin nhắn của bạn đã được ghi nhận."
                 );
 
-                return;
+
+                contactForm.reset();
+
             }
+        );
+
+    }
 
 
-            alert(
-                "Cảm ơn " +
-                name +
-                "! Tin nhắn của bạn đã được ghi nhận."
-            );
+    /* =====================================================
+       4. MENU TỰ ĐỘNG ACTIVE KHI CUỘN
+    ===================================================== */
+
+    const sections =
+        document.querySelectorAll("section");
+
+    const navLinks =
+        document.querySelectorAll(".nav-link");
 
 
-            contactForm.reset();
+    function updateActiveMenu() {
 
-        }
-    );
-
-}
+        let currentSection = "";
 
 
-/* =========================
-   MENU ACTIVE
-   ========================= */
-
-const sections =
-    document.querySelectorAll(
-        "section[id]"
-    );
-
-
-const navLinks =
-    document.querySelectorAll(
-        ".nav-link"
-    );
-
-
-function updateActiveMenu() {
-
-    let currentSection = "";
-
-
-    sections.forEach(
-        function (section) {
+        sections.forEach(function (section) {
 
             const sectionTop =
-                section.offsetTop - 200;
-
+                section.offsetTop - 180;
 
             const sectionHeight =
                 section.offsetHeight;
 
 
             if (
-                window.scrollY >=
-                    sectionTop &&
-
-                window.scrollY <
-                    sectionTop +
-                    sectionHeight
+                window.scrollY >= sectionTop &&
+                window.scrollY < sectionTop + sectionHeight
             ) {
 
                 currentSection =
-                    section.getAttribute(
-                        "id"
-                    );
+                    section.getAttribute("id");
 
             }
 
-        }
-    );
+        });
 
 
-    navLinks.forEach(
-        function (link) {
+        navLinks.forEach(function (link) {
 
-            link.classList.remove(
-                "active"
-            );
+            link.classList.remove("active");
 
 
-            if (
-                link.getAttribute(
-                    "href"
-                ) ===
-                "#" + currentSection
-            ) {
+            const href =
+                link.getAttribute("href");
 
-                link.classList.add(
-                    "active"
-                );
+
+            if (href === "#" + currentSection) {
+
+                link.classList.add("active");
 
             }
 
-        }
+        });
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateActiveMenu
     );
 
-}
+
+    updateActiveMenu();
 
 
-window.addEventListener(
-    "scroll",
-    updateActiveMenu
-);
+    /* =====================================================
+       5. CUỘN MƯỢT KHI BẤM MENU
+    ===================================================== */
 
-
-updateActiveMenu();
-
-
-/* =========================
-   CUỘN MƯỢT MENU
-   ========================= */
-
-navLinks.forEach(
-    function (link) {
+    navLinks.forEach(function (link) {
 
         link.addEventListener(
             "click",
             function (event) {
 
                 const targetId =
-                    link.getAttribute(
-                        "href"
-                    );
+                    link.getAttribute("href");
 
 
                 if (
-                    !targetId ||
-                    !targetId.startsWith("#")
+                    targetId &&
+                    targetId.startsWith("#")
                 ) {
 
-                    return;
-
-                }
-
-
-                const target =
-                    document.querySelector(
-                        targetId
-                    );
+                    const target =
+                        document.querySelector(targetId);
 
 
-                if (target) {
+                    if (target) {
 
-                    event.preventDefault();
+                        event.preventDefault();
 
 
-                    target.scrollIntoView({
-                        behavior: "smooth"
-                    });
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                    }
 
                 }
 
             }
         );
 
-    }
-);
+    });
 
 
-/* =========================
-   HIỆU ỨNG ONLINE
-   ========================= */
-
-const online =
-    document.querySelector(".online");
-
-
-if (online) {
-
-    setInterval(
-        function () {
-
-            online.classList.toggle(
-                "blink"
-            );
-
-        },
-        1000
-    );
-
-}
-
-
-/* =========================
-   THANH KỸ NĂNG
-   ========================= */
-
-const progressBars =
-    document.querySelectorAll(
-        ".progress-bar"
-    );
-
-
-const progressObserver =
-    new IntersectionObserver(
-        function (entries) {
-
-            entries.forEach(
-                function (entry) {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        const bar =
-                            entry.target;
-
-
-                        const width =
-                            bar.getAttribute(
-                                "data-width"
-                            );
-
-
-                        if (width) {
-
-                            bar.style.width =
-                                width;
-
-                        }
-
-
-                        progressObserver.unobserve(
-                            bar
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold: 0.3
-        }
-    );
-
-
-progressBars.forEach(
-    function (bar) {
-
-        progressObserver.observe(
-            bar
-        );
-
-    }
-);
-
-
-/* =========================
-   HIỆU ỨNG MARQUEE
-   ========================= */
-
-const marquee =
-    document.querySelector(
-        ".marquee-track"
-    );
-
-
-if (marquee) {
-
-    marquee.addEventListener(
-        "mouseenter",
-        function () {
-
-            marquee.style.animationPlayState =
-                "paused";
-
-        }
-    );
-
-
-    marquee.addEventListener(
-        "mouseleave",
-        function () {
-
-            marquee.style.animationPlayState =
-                "running";
-
-        }
-    );
-
-}
-
-
-/* =========================
-   LINK FACEBOOK
-   ========================= */
-
-const facebookLinks =
-    document.querySelectorAll(
-        'a[href*="facebook.com"]'
-    );
-
-
-facebookLinks.forEach(
-    function (link) {
-
-        link.setAttribute(
-            "target",
-            "_blank"
-        );
-
-        link.setAttribute(
-            "rel",
-            "noopener noreferrer"
-        );
-
-    }
-);
+});
